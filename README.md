@@ -1,96 +1,63 @@
-# blocks-stack
+# AWS Blocks Stack Builder 🧱⚡
 
-This project was created with [Better-T-Stack](https://github.com/AmanVarshney01/create-better-t-stack), a modern TypeScript stack that combines Next.js, Self, and more.
+An interactive stack builder and architecture configurator for **AWS Blocks** (`@aws-blocks/blocks`), inspired by Better-T-Stack and powered by modern TypeScript and AWS infrastructure-from-code principles.
 
-## Features
+---
 
-- **TypeScript** - For type safety and improved developer experience
-- **Next.js** - Full-stack React framework
-- **TailwindCSS** - Utility-first CSS for rapid UI development
-- **Shared UI package** - shadcn/ui primitives live in `packages/ui`
-- **Drizzle** - TypeScript-first ORM
-- **PostgreSQL** - Database engine
-- **Oxlint** - Oxlint + Oxfmt (linting & formatting)
-- **Turborepo** - Optimized monorepo build system
+## 🌟 What is AWS Blocks?
 
-## Getting Started
+[AWS Blocks](https://github.com/aws-devtools-labs/aws-blocks) is an open-source, "Infrastructure from Code" TypeScript framework by AWS DevTools.
 
-First, install the dependencies:
+Each Block (e.g. `Database`, `KVStore`, `AuthCognito`, `FileBucket`, `Agent`, `AsyncJob`, `CronJob`) serves **three roles simultaneously**:
+
+1. **Local Mock**: Runs 100% locally with zero cloud dependencies and no AWS account required during development (`bun run dev`).
+2. **Infrastructure Definition**: Synthesizes production-ready AWS CDK constructs and CloudFormation templates on deploy (`blocks deploy`).
+3. **Runtime Implementation**: Provides high-performance, type-safe AWS SDK runtime execution inside Lambda or App Runner.
+4. **AI-Agent Ready**: Includes `AGENTS.md` steering files for Claude, Gemini, Cursor, and Copilot.
+
+---
+
+## 🚀 Interactive Builder Features
+
+- **Web Frontend**: Next.js, TanStack Start, TanStack Router, React Router, Nuxt, SvelteKit, SolidStart, Astro.
+- **Native Frontend**: Expo (Uniwind / Bare / Unistyles), Swift (iOS Native), Kotlin (Android Native), Flutter (Dart).
+- **Backend & Compute**: AWS Lambda (Serverless scale-to-zero), AWS App Runner, ECS Fargate, Hono, Fullstack Next.js.
+- **API & RPC Layer**: AWS Blocks `ApiNamespace` (type-safe RPC & SDK gen), tRPC, oRPC, REST (API Gateway), AppSync GraphQL.
+- **Database Options**:
+  - **Aurora Serverless v2 PostgreSQL** (0.5 - 128 ACUs with pgvector)
+  - **Amazon DynamoDB** (KVStore & DistributedTable)
+  - **Amazon Aurora DSQL** (Multi-region active-active distributed SQL)
+  - **Aurora Serverless v2 MySQL**
+  - **Neon Serverless Postgres** & **Supabase Postgres**
+- **ORM Options**: Drizzle ORM, Prisma ORM, Kysely, AWS Blocks Native SDK.
+- **Auth Options**: Amazon Cognito (`AuthCognito`), AWS Blocks Basic Auth (`AuthBasic`), AWS OIDC (`AuthOIDC`), Better-Auth, Clerk.
+- **Storage**: Amazon S3 (`FileBucket`) with presigned upload URLs & CloudFront CDN.
+- **AI & Amazon Bedrock**: Bedrock Agent (`Agent` - Claude 3.5 Sonnet / Nova), Bedrock KnowledgeBase (`KnowledgeBase` RAG vector search).
+- **Async & Events**: SQS (`AsyncJob`), EventBridge (`CronJob`), WebSockets (`Realtime`), SES (`EmailClient`), Secrets Manager (`SecretStore`).
+- **Deployment**: AWS CDK (Native Infra-from-Code), AWS Amplify Hosting, AWS App Runner, Docker + ECS Fargate.
+- **Addons & DX**: AI Agent Steering (`AGENTS.md`), Turborepo, Local Mock Server, AWS Blocks MCP Server, Oxlint, Biome, Husky, Fumadocs.
+
+---
+
+## 🛠️ Quick Start
 
 ```bash
+# 1. Install dependencies
 bun install
-```
 
-## Database Setup
-
-This project uses PostgreSQL with Drizzle ORM.
-
-1. Make sure you have a PostgreSQL database set up.
-2. Update your `apps/web/.env` file with your PostgreSQL connection details.
-
-3. Apply the schema to your database:
-
-```bash
-bun run db:push
-```
-
-Then, run the development server:
-
-```bash
+# 2. Run the interactive web builder
 bun run dev
 ```
 
-Open [http://localhost:3001](http://localhost:3001) in your browser to see the fullstack application.
+Open [http://localhost:3001](http://localhost:3001) to explore the builder, load architectural presets, and inspect generated code!
 
-## UI Customization
+---
 
-React web apps in this stack share shadcn/ui primitives through `packages/ui`.
+## 📋 Architecture Presets Included
 
-- Change design tokens and global styles in `packages/ui/src/styles/globals.css`
-- Update shared primitives in `packages/ui/src/components/*`
-- Adjust shadcn aliases or style config in `packages/ui/components.json` and `apps/web/components.json`
-
-### Add more shared components
-
-Run this from the project root to add more primitives to the shared UI package:
-
-```bash
-npx shadcn@latest add accordion dialog popover sheet table -c packages/ui
-```
-
-Import shared components like this:
-
-```tsx
-import { Button } from "@blocks-stack/ui/components/button";
-```
-
-### Add app-specific blocks
-
-If you want to add app-specific blocks instead of shared primitives, run the shadcn CLI from `apps/web`.
-
-## Git Hooks and Formatting
-
-- Run checks: `bun run check`
-
-## Project Structure
-
-```
-blocks-stack/
-├── apps/
-│   └── web/         # Fullstack application (Next.js)
-├── packages/
-│   ├── ui/          # Shared shadcn/ui components and styles
-│   └── db/          # Database schema & queries
-```
-
-## Available Scripts
-
-- `bun run dev`: Start all applications in development mode
-- `bun run build`: Build all applications
-- `bun run dev:web`: Start only the web application
-- `bun run check-types`: Check TypeScript types across all apps
-- `bun run db:push`: Push schema changes to database
-- `bun run db:generate`: Generate database client/types
-- `bun run db:migrate`: Run database migrations
-- `bun run db:studio`: Open database studio UI
-- `bun run check`: Run Oxlint and Oxfmt
+1. 🤖 **AI Agent & RAG Stack**: Next.js + Bedrock Agent (Claude 3.5) + KnowledgeBase + Aurora pgvector + Cognito + S3.
+2. 🏢 **Modern Fullstack SaaS**: Next.js + Aurora Postgres + Drizzle + Cognito + S3 + SQS + SES + Turborepo.
+3. 📱 **Cross-Platform Mobile**: Expo (Uniwind) + Swift & Kotlin clients + DynamoDB + Cognito + S3 + WebSockets.
+4. ⚡ **High-Scale Serverless**: TanStack Start + DynamoDB + ApiNamespace + SQS + EventBridge + Lambda.
+5. 🌐 **Aurora DSQL Active-Active**: React Router + Aurora DSQL + Prisma + AuthOIDC + S3 + App Runner.
+6. 🛠️ **Local-First Lightweight**: Next.js + DynamoDB + AuthBasic + Local Mock simulation (zero AWS credentials needed).
