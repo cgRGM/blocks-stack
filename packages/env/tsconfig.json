@@ -1,0 +1,3 @@
+{
+  "extends": "@blocks-stack/config/tsconfig.base.json"
+}
