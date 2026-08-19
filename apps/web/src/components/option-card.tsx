@@ -20,6 +20,7 @@ import {
   SecretsManagerIcon,
   NextjsIcon,
   ReactIcon,
+  ReactRouterIcon,
   TanStackIcon,
   NuxtIcon,
   SvelteIcon,
@@ -31,6 +32,7 @@ import {
   FlutterIcon,
   DrizzleIcon,
   PrismaIcon,
+  KyselyIcon,
   HonoIcon,
   TrpcIcon,
   NeonIcon,
@@ -44,6 +46,7 @@ import {
   BetterAuthIcon,
   ClerkIcon,
   AmplifyIcon,
+  AppSyncIcon,
 } from "./icons";
 import type { OptionItem } from "@/data/builder-data";
 import { Check, AlertCircle, Terminal } from "lucide-react";
@@ -101,10 +104,15 @@ export function RenderIcon({
       return <SesIcon size={size} className={className} />;
     case "secrets-manager":
       return <SecretsManagerIcon size={size} className={className} />;
+    case "graphql":
+    case "appsync":
+      return <AppSyncIcon size={size} className={className} />;
     case "nextjs":
       return <NextjsIcon size={size} className={className} />;
     case "react":
       return <ReactIcon size={size} className={className} />;
+    case "react-router":
+      return <ReactRouterIcon size={size} className={className} />;
     case "tanstack":
       return <TanStackIcon size={size} className={className} />;
     case "nuxt":
@@ -127,6 +135,8 @@ export function RenderIcon({
       return <DrizzleIcon size={size} className={className} />;
     case "prisma":
       return <PrismaIcon size={size} className={className} />;
+    case "kysely":
+      return <KyselyIcon size={size} className={className} />;
     case "hono":
       return <HonoIcon size={size} className={className} />;
     case "trpc":

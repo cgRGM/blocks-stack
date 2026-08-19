@@ -35,6 +35,7 @@
   },
   "dependencies": {
     "@blocks-stack/env": "workspace:*",
+    "@ridemountainpig/svgl-react": "^1.0.17",
     "dotenv": "catalog:",
     "zod": "catalog:"
   },

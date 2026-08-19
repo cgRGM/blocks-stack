@@ -20,6 +20,7 @@
     "react": "catalog:",
     "react-dom": "catalog:",
     "sonner": "catalog:",
+    "svgl-react": "^1.1.4",
     "zod": "catalog:"
   },
   "devDependencies": {

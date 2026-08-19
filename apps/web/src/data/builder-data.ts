@@ -59,7 +59,7 @@ export const BUILDER_CATEGORIES: CategoryGroup[] = [
         id: "react-router",
         name: "React Router",
         description: "Declarative, standards-first routing and SSR for React",
-        iconName: "react",
+        iconName: "react-router",
       },
       {
         id: "nuxt",
@@ -234,7 +234,7 @@ export const BUILDER_CATEGORIES: CategoryGroup[] = [
         id: "graphql",
         name: "AWS AppSync (GraphQL)",
         description: "Managed GraphQL service with real-time subscriptions & offline sync",
-        iconName: "aws",
+        iconName: "graphql",
       },
       {
         id: "none",
@@ -334,7 +334,7 @@ export const BUILDER_CATEGORIES: CategoryGroup[] = [
         id: "kysely",
         name: "Kysely Query Builder",
         description: "Type-safe TypeScript SQL query builder without runtime magic",
-        iconName: "drizzle",
+        iconName: "kysely",
         incompatibleWith: ["dynamodb"],
       },
       {

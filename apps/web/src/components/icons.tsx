@@ -1,9 +1,37 @@
 import * as React from "react";
+import {
+  NextjsIconDark,
+  React as SvglReact,
+  Reactrouter as SvglReactRouter,
+  Nuxt as SvglNuxt,
+  Svelte as SvglSvelte,
+  Solidjs as SvglSolid,
+  Astro as SvglAstro,
+  Expo as SvglExpo,
+  Swift as SvglSwift,
+  Kotlin as SvglKotlin,
+  Flutter as SvglFlutter,
+  Prisma as SvglPrisma,
+  Hono as SvglHono,
+  Neon as SvglNeon,
+  Supabase as SvglSupabase,
+  Turborepo as SvglTurborepo,
+  Biomejs as SvglBiome,
+  Bun as SvglBun,
+  Pnpm as SvglPnpm,
+  Npm as SvglNpm,
+  Graphql as SvglGraphql,
+  GithubDark as SvglGithub,
+} from "svgl-react";
 
 export interface IconProps extends React.SVGProps<SVGSVGElement> {
   size?: number | string;
   className?: string;
 }
+
+// ----------------------------------------------------
+// Official AWS Architecture Icons (from aws-icons.com)
+// ----------------------------------------------------
 
 // AWS Blocks Core Logo
 export function AwsBlocksIcon({ size = 20, className, ...props }: IconProps) {
@@ -434,66 +462,22 @@ export function DsqlIcon({ size = 24, className, ...props }: IconProps) {
   );
 }
 
-// Next.js Icon
-export function NextjsIcon({ size = 20, className, ...props }: IconProps) {
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      className={className}
-      {...props}
-    >
-      <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm3.89 14.86l-6.49-8.4v8.4H8V7.14h1.72l6.28 8.16v-8.16h1.4v9.72h-1.51z" />
-    </svg>
-  );
+// ----------------------------------------------------
+// Frontend & Tooling Icons powered by SVGL / React
+// ----------------------------------------------------
+
+export function NextjsIcon({ size = 20, className }: IconProps) {
+  return <NextjsIconDark width={size} height={size} className={className} />;
 }
 
-// React Icon
-export function ReactIcon({ size = 20, className, ...props }: IconProps) {
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="none"
-      className={className}
-      {...props}
-    >
-      <ellipse
-        cx="12"
-        cy="12"
-        rx="4"
-        ry="10"
-        stroke="#00D8FF"
-        strokeWidth="1.5"
-        transform="rotate(30 12 12)"
-      />
-      <ellipse
-        cx="12"
-        cy="12"
-        rx="4"
-        ry="10"
-        stroke="#00D8FF"
-        strokeWidth="1.5"
-        transform="rotate(90 12 12)"
-      />
-      <ellipse
-        cx="12"
-        cy="12"
-        rx="4"
-        ry="10"
-        stroke="#00D8FF"
-        strokeWidth="1.5"
-        transform="rotate(150 12 12)"
-      />
-      <circle cx="12" cy="12" r="2" fill="#00D8FF" />
-    </svg>
-  );
+export function ReactIcon({ size = 20, className }: IconProps) {
+  return <SvglReact width={size} height={size} className={className} />;
 }
 
-// TanStack Icon
+export function ReactRouterIcon({ size = 20, className }: IconProps) {
+  return <SvglReactRouter width={size} height={size} className={className} />;
+}
+
 export function TanStackIcon({ size = 20, className, ...props }: IconProps) {
   return (
     <svg
@@ -511,148 +495,80 @@ export function TanStackIcon({ size = 20, className, ...props }: IconProps) {
   );
 }
 
-// Nuxt Icon
-export function NuxtIcon({ size = 20, className, ...props }: IconProps) {
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="none"
-      className={className}
-      {...props}
-    >
-      <path d="M2 18L9 6L16 18H2Z" fill="#00DC82" />
-      <path d="M10 18L16 8L22 18H10Z" fill="#00C58E" fillOpacity="0.8" />
-    </svg>
-  );
+export function NuxtIcon({ size = 20, className }: IconProps) {
+  return <SvglNuxt width={size} height={size} className={className} />;
 }
 
-// Svelte Icon
-export function SvelteIcon({ size = 20, className, ...props }: IconProps) {
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      className={className}
-      {...props}
-    >
-      <path
-        fill="#FF3E00"
-        d="M18.8 4.2C16.5 2.4 13.2 2.8 11.4 5.1L7.5 10.1c-1.3 1.7-1 4.1.7 5.4.6.5 1.4.8 2.2.8.6 0 1.2-.2 1.7-.5l3.9-3.1c.3-.2.7-.2.9.1.2.3.2.7-.1.9l-3.9 3.1c-1.1.9-2.5 1.2-3.8.8-1.4-.4-2.5-1.5-3-2.8-.5-1.4-.4-2.9.4-4.2l3.9-5C13.2 1.9 17.6 1.4 20.3 4.1c2.7 2.7 2.7 7.1 0 9.8l-5 6.4c-2.3 2.9-6.5 3.4-9.4 1.1-2.9-2.3-3.4-6.5-1.1-9.4l2.1-2.7c.3-.4.9-.4 1.3-.1.4.3.4.9.1 1.3l-2.1 2.7c-1.6 2-1.2 5 .8 6.6 2 1.6 5 1.2 6.6-.8l5-6.4c1.9-2.1 1.8-5.3-.2-7.2z"
-      />
-    </svg>
-  );
+export function SvelteIcon({ size = 20, className }: IconProps) {
+  return <SvglSvelte width={size} height={size} className={className} />;
 }
 
-// Solid Icon
-export function SolidIcon({ size = 20, className, ...props }: IconProps) {
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="none"
-      className={className}
-      {...props}
-    >
-      <path d="M4 18L12 6L20 18H4Z" fill="#2C4F7C" />
-      <path d="M8 18L12 12L16 18H8Z" fill="#446B9E" />
-    </svg>
-  );
+export function SolidIcon({ size = 20, className }: IconProps) {
+  return <SvglSolid width={size} height={size} className={className} />;
 }
 
-// Astro Icon
-export function AstroIcon({ size = 20, className, ...props }: IconProps) {
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      className={className}
-      {...props}
-    >
-      <path
-        fill="#BC52EE"
-        d="M12 2L3 19h4.5l1.5-3.5h6L16.5 19H21L12 2zm-1.5 10.5L12 7.5l1.5 5h-3z"
-      />
-    </svg>
-  );
+export function AstroIcon({ size = 20, className }: IconProps) {
+  return <SvglAstro width={size} height={size} className={className} />;
 }
 
-// Expo Icon
-export function ExpoIcon({ size = 20, className, ...props }: IconProps) {
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      className={className}
-      {...props}
-    >
-      <path d="M2.5 18.5l9.5-15 9.5 15h-4l-5.5-9-5.5 9h-4z" />
-    </svg>
-  );
+export function ExpoIcon({ size = 20, className }: IconProps) {
+  return <SvglExpo width={size} height={size} className={className} />;
 }
 
-// Swift Icon
-export function SwiftIcon({ size = 20, className, ...props }: IconProps) {
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="none"
-      className={className}
-      {...props}
-    >
-      <rect x="2" y="2" width="20" height="20" rx="5" fill="#F05138" />
-      <path
-        d="M18 16C15 17.5 11 16 8 13C10.5 14 13.5 13 15 11C12 11.5 9.5 9.5 8 7C11 9 14.5 8.5 17 6C15.5 8 13.5 9.5 11 10C14 10.5 17 12.5 18 16Z"
-        fill="#FFFFFF"
-      />
-    </svg>
-  );
+export function SwiftIcon({ size = 20, className }: IconProps) {
+  return <SvglSwift width={size} height={size} className={className} />;
 }
 
-// Kotlin Icon
-export function KotlinIcon({ size = 20, className, ...props }: IconProps) {
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="none"
-      className={className}
-      {...props}
-    >
-      <rect x="2" y="2" width="20" height="20" rx="4" fill="#7F52FF" />
-      <path d="M4 20L20 4H4V20Z" fill="#C757BC" />
-      <path d="M4 20L12 12L20 20H4Z" fill="#00AFFF" />
-    </svg>
-  );
+export function KotlinIcon({ size = 20, className }: IconProps) {
+  return <SvglKotlin width={size} height={size} className={className} />;
 }
 
-// Flutter Icon
-export function FlutterIcon({ size = 20, className, ...props }: IconProps) {
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="none"
-      className={className}
-      {...props}
-    >
-      <path d="M13.5 2.5L5.5 10.5L8.5 13.5L19.5 2.5H13.5Z" fill="#54C5F8" />
-      <path d="M13.5 14.5L8.5 19.5L11.5 22.5L19.5 14.5H13.5Z" fill="#29B6F6" />
-      <path d="M8.5 19.5L13.5 14.5L16.5 17.5L11.5 22.5L8.5 19.5Z" fill="#01579B" />
-    </svg>
-  );
+export function FlutterIcon({ size = 20, className }: IconProps) {
+  return <SvglFlutter width={size} height={size} className={className} />;
+}
+
+export function PrismaIcon({ size = 20, className }: IconProps) {
+  return <SvglPrisma width={size} height={size} className={className} />;
+}
+
+export function HonoIcon({ size = 20, className }: IconProps) {
+  return <SvglHono width={size} height={size} className={className} />;
+}
+
+export function NeonIcon({ size = 20, className }: IconProps) {
+  return <SvglNeon width={size} height={size} className={className} />;
+}
+
+export function SupabaseIcon({ size = 20, className }: IconProps) {
+  return <SvglSupabase width={size} height={size} className={className} />;
+}
+
+export function TurborepoIcon({ size = 20, className }: IconProps) {
+  return <SvglTurborepo width={size} height={size} className={className} />;
+}
+
+export function BiomeIcon({ size = 20, className }: IconProps) {
+  return <SvglBiome width={size} height={size} className={className} />;
+}
+
+export function BunIcon({ size = 20, className }: IconProps) {
+  return <SvglBun width={size} height={size} className={className} />;
+}
+
+export function PnpmIcon({ size = 20, className }: IconProps) {
+  return <SvglPnpm width={size} height={size} className={className} />;
+}
+
+export function NpmIcon({ size = 20, className }: IconProps) {
+  return <SvglNpm width={size} height={size} className={className} />;
+}
+
+export function AppSyncIcon({ size = 20, className }: IconProps) {
+  return <SvglGraphql width={size} height={size} className={className} />;
+}
+
+export function GithubIcon({ size = 20, className }: IconProps) {
+  return <SvglGithub width={size} height={size} className={className} />;
 }
 
 // Drizzle ORM Icon
@@ -672,8 +588,8 @@ export function DrizzleIcon({ size = 20, className, ...props }: IconProps) {
   );
 }
 
-// Prisma ORM Icon
-export function PrismaIcon({ size = 20, className, ...props }: IconProps) {
+// Kysely Query Builder Icon
+export function KyselyIcon({ size = 20, className, ...props }: IconProps) {
   return (
     <svg
       width={size}
@@ -683,27 +599,13 @@ export function PrismaIcon({ size = 20, className, ...props }: IconProps) {
       className={className}
       {...props}
     >
-      <path d="M12 2L4 19L12 22L20 19L12 2Z" fill="#2D3748" stroke="#5A67D8" strokeWidth="1.5" />
-      <path d="M12 2L12 22M4 19L12 14L20 19" stroke="#5A67D8" strokeWidth="1" />
-    </svg>
-  );
-}
-
-// Hono Icon
-export function HonoIcon({ size = 20, className, ...props }: IconProps) {
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="none"
-      className={className}
-      {...props}
-    >
-      <rect x="2" y="2" width="20" height="20" rx="4" fill="#E36002" />
+      <rect x="2" y="2" width="20" height="20" rx="4" fill="#3B82F6" />
       <path
-        d="M12 4C12 4 8 8 8 13C8 16.5 10 19 12 20C14 19 16 16.5 16 13C16 8 12 4 12 4Z"
-        fill="#FFD200"
+        d="M7 6V18M7 12L14 6M10 10L16 18"
+        stroke="#FFFFFF"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
@@ -722,161 +624,6 @@ export function TrpcIcon({ size = 20, className, ...props }: IconProps) {
     >
       <rect x="2" y="2" width="20" height="20" rx="4" fill="#2563EB" />
       <path d="M7 8H17M12 8V17" stroke="#60A5FA" strokeWidth="2.5" strokeLinecap="round" />
-    </svg>
-  );
-}
-
-// Neon Postgres Icon
-export function NeonIcon({ size = 20, className, ...props }: IconProps) {
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="none"
-      className={className}
-      {...props}
-    >
-      <rect x="2" y="2" width="20" height="20" rx="4" fill="#00E599" />
-      <path
-        d="M6 18V6L18 18V6"
-        stroke="#000000"
-        strokeWidth="2.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-// Supabase Icon
-export function SupabaseIcon({ size = 20, className, ...props }: IconProps) {
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="none"
-      className={className}
-      {...props}
-    >
-      <rect x="2" y="2" width="20" height="20" rx="4" fill="#1C1C1C" />
-      <path d="M13 3L4 14H12L11 21L20 10H12L13 3Z" fill="#3ECF8E" />
-    </svg>
-  );
-}
-
-// Turborepo Icon
-export function TurborepoIcon({ size = 20, className, ...props }: IconProps) {
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="none"
-      className={className}
-      {...props}
-    >
-      <circle cx="12" cy="12" r="10" fill="#000000" />
-      <path
-        d="M7 12C7 9.24 9.24 7 12 7C14.76 7 17 9.24 17 12C17 14.76 14.76 17 12 17"
-        stroke="url(#turbo-gradient)"
-        strokeWidth="3"
-        strokeLinecap="round"
-      />
-      <defs>
-        <linearGradient
-          id="turbo-gradient"
-          x1="7"
-          y1="7"
-          x2="17"
-          y2="17"
-          gradientUnits="userSpaceOnUse"
-        >
-          <stop stopColor="#0070F3" />
-          <stop offset="1" stopColor="#FF0080" />
-        </linearGradient>
-      </defs>
-    </svg>
-  );
-}
-
-// Biome Icon
-export function BiomeIcon({ size = 20, className, ...props }: IconProps) {
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="none"
-      className={className}
-      {...props}
-    >
-      <rect x="2" y="2" width="20" height="20" rx="5" fill="#60A5FA" />
-      <circle cx="12" cy="12" r="5" fill="#1E293B" />
-      <path d="M12 9V15M9 12H15" stroke="#60A5FA" strokeWidth="2" />
-    </svg>
-  );
-}
-
-// Bun Icon
-export function BunIcon({ size = 20, className, ...props }: IconProps) {
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="none"
-      className={className}
-      {...props}
-    >
-      <circle cx="12" cy="12" r="10" fill="#FBF0DF" />
-      <ellipse cx="12" cy="13" rx="7" ry="5.5" fill="#ECCCA2" />
-      <circle cx="9.5" cy="12.5" r="1" fill="#000" />
-      <circle cx="14.5" cy="12.5" r="1" fill="#000" />
-      <path
-        d="M11 15C11.5 15.5 12.5 15.5 13 15"
-        stroke="#000"
-        strokeWidth="1"
-        strokeLinecap="round"
-      />
-    </svg>
-  );
-}
-
-// pnpm Icon
-export function PnpmIcon({ size = 20, className, ...props }: IconProps) {
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="none"
-      className={className}
-      {...props}
-    >
-      <rect x="3" y="3" width="7" height="7" fill="#F69220" />
-      <rect x="14" y="3" width="7" height="7" fill="#F69220" />
-      <rect x="3" y="14" width="7" height="7" fill="#4ABAFF" />
-      <rect x="14" y="14" width="7" height="7" fill="#F69220" />
-      <rect x="8.5" y="8.5" width="7" height="7" fill="#F69220" />
-    </svg>
-  );
-}
-
-// npm Icon
-export function NpmIcon({ size = 20, className, ...props }: IconProps) {
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="none"
-      className={className}
-      {...props}
-    >
-      <rect x="2" y="5" width="20" height="14" fill="#CB3837" />
-      <path d="M5 8H19V16H14V11H11V16H5V8Z" fill="#FFFFFF" />
     </svg>
   );
 }
@@ -947,26 +694,6 @@ export function ClerkIcon({ size = 20, className, ...props }: IconProps) {
         fill="#FFFFFF"
       />
       <circle cx="12" cy="10" r="2.5" fill="#6C47FF" />
-    </svg>
-  );
-}
-
-// GitHub Icon
-export function GithubIcon({ size = 20, className, ...props }: IconProps) {
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      className={className}
-      {...props}
-    >
-      <path
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
-      />
     </svg>
   );
 }
