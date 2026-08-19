@@ -1,5 +1,6 @@
 "use client";
 
+import * as React from "react";
 import type { CategoryGroup } from "@/data/builder-data";
 import { OptionCard } from "./option-card";
 
@@ -20,22 +21,22 @@ export function CategorySection({
   const selectedArray = Array.isArray(selectedValues) ? selectedValues : [selectedValues];
 
   return (
-    <section id={category.id} className="scroll-mt-24 space-y-3.5">
+    <section id={category.id} className="scroll-mt-20 space-y-2.5">
       {/* Category Header */}
-      <div className="flex items-center justify-between border-b border-border/60 pb-2">
+      <div className="flex items-center justify-between border-b border-zinc-800 pb-2">
         <div className="flex items-center gap-2">
           <span className="font-mono text-xs text-[#FF9900] font-bold">&gt;_</span>
-          <h2 className="text-xs font-bold tracking-wider uppercase text-foreground/90 font-mono">
+          <h2 className="text-xs font-bold tracking-wider uppercase text-zinc-200 font-mono">
             {category.title}
           </h2>
         </div>
         <div className="flex items-center gap-2">
           {category.description && (
-            <span className="hidden md:inline-block text-[11px] text-muted-foreground">
+            <span className="hidden md:inline-block text-[11px] text-zinc-500 font-normal">
               {category.description}
             </span>
           )}
-          <span className="text-[11px] font-mono text-muted-foreground bg-muted/60 px-2 py-0.5 rounded border border-border/40">
+          <span className="text-[11px] font-mono text-zinc-400 bg-zinc-900 px-2 py-0.5 rounded border border-zinc-800">
             {isMulti
               ? `${selectedArray.length} selected`
               : selectedArray[0]
@@ -56,7 +57,6 @@ export function CategorySection({
 
           if (option.requires && option.requires.length > 0) {
             const missingReq = option.requires.find((reqId) => {
-              // Check if reqId is selected anywhere in allSelections
               const isFound = Object.values(allSelections).some((val) =>
                 Array.isArray(val) ? val.includes(reqId) : val === reqId,
               );

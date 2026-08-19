@@ -22,7 +22,7 @@ export function StackBuilder() {
   });
 
   const [packageManager, setPackageManager] = React.useState<string>("bun");
-  const [projectName] = React.useState<string>("my-aws-app");
+  const [projectName, setProjectName] = React.useState<string>("my-aws-app");
   const [searchQuery, setSearchQuery] = React.useState<string>("");
   const [activeCategoryFilter, setActiveCategoryFilter] = React.useState<string>("all");
   const [isPreviewOpen, setIsPreviewOpen] = React.useState<boolean>(false);
@@ -114,81 +114,89 @@ export function StackBuilder() {
   const activePreset = PRESET_STACKS.find((p) => p.id === activePresetId);
 
   return (
-    <div className="flex min-h-screen flex-col bg-background text-foreground">
-      {/* Header */}
+    <div className="flex min-h-screen flex-col bg-black text-zinc-100 selection:bg-zinc-800 selection:text-zinc-100">
+      {/* Top Header */}
       <Header
         onOpenPresets={() => setIsPresetsOpen(true)}
         selectedPresetName={activePreset?.name}
       />
 
-      {/* Top Banner / Hero */}
-      <section className="border-b border-border/80 bg-gradient-to-b from-muted/30 via-background to-background py-8 px-4 sm:px-6">
-        <div className="mx-auto max-w-7xl">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+      {/* Top Configuration & Filter Bar */}
+      <section className="border-b border-zinc-800/80 bg-zinc-950/40 py-6 px-4 sm:px-6">
+        <div className="mx-auto max-w-6xl space-y-5">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
-              <div className="inline-flex items-center gap-2 rounded-full border border-[#FF9900]/40 bg-amber-500/[0.08] px-3 py-1 text-xs font-semibold text-[#FF9900] mb-3 shadow-xs">
-                <Sparkles size={13} />
-                <span>Next-Gen Infrastructure from Code</span>
-              </div>
-              <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground font-mono">
-                AWS BLOCKS <span className="text-[#FF9900]">STACK BUILDER</span>
+              <h1 className="text-xl font-bold tracking-tight text-zinc-100 font-mono flex items-center gap-2">
+                <span>Configure Project Stack</span>
               </h1>
-              <p className="mt-1.5 text-xs sm:text-sm text-muted-foreground max-w-2xl leading-relaxed">
-                Compose fullstack AWS applications in seconds with modular type-safe blocks, local
-                mock emulation, and automated CDK synthesis.
+              <p className="mt-1 text-xs text-zinc-400 max-w-2xl leading-relaxed">
+                Compose modular AWS Blocks with end-to-end type safety, local mock emulation, and
+                automated CDK synthesis.
               </p>
             </div>
 
-            {/* Quick Presets Pills */}
-            <div className="flex flex-col gap-2">
-              <div className="flex items-center justify-between">
-                <span className="text-[11px] font-mono text-muted-foreground font-bold uppercase tracking-wider">
-                  Quick Architecture Presets
-                </span>
-                <button
-                  onClick={() => setIsPresetsOpen(true)}
-                  className="text-[11px] font-semibold text-[#FF9900] hover:underline"
-                >
-                  View All ({PRESET_STACKS.length})
-                </button>
+            {/* Project Name & Presets */}
+            <div className="flex items-center gap-2">
+              <div className="flex items-center rounded-md border border-zinc-800 bg-zinc-900 px-2.5 py-1 text-xs font-mono text-zinc-400">
+                <span className="text-zinc-500 mr-1.5">$</span>
+                <input
+                  type="text"
+                  value={projectName}
+                  onChange={(e) => setProjectName(e.target.value)}
+                  className="w-28 bg-transparent text-zinc-200 focus:outline-none focus:text-white"
+                  placeholder="project-name"
+                />
               </div>
-              <div className="flex flex-wrap gap-1.5 max-w-md">
-                {PRESET_STACKS.slice(0, 4).map((preset) => (
-                  <button
-                    key={preset.id}
-                    onClick={() => handleSelectPreset(preset)}
-                    className={`flex items-center gap-1.5 rounded-lg border px-2.5 py-1 text-xs font-medium transition-all ${
-                      activePresetId === preset.id
-                        ? "border-[#FF9900] bg-[#FF9900]/15 text-[#FF9900] shadow-xs font-bold"
-                        : "border-border/80 bg-muted/40 text-foreground/80 hover:bg-muted hover:text-foreground"
-                    }`}
-                  >
-                    <span>{preset.name}</span>
-                  </button>
-                ))}
-              </div>
+
+              <button
+                onClick={() => setIsPresetsOpen(true)}
+                className="flex items-center gap-1.5 rounded-md border border-zinc-700 bg-zinc-900 px-3 py-1.5 text-xs font-medium text-zinc-200 hover:border-zinc-500 hover:bg-zinc-800 transition-colors"
+              >
+                <Sparkles size={13} className="text-[#FF9900]" />
+                <span>Presets</span>
+              </button>
             </div>
           </div>
 
+          {/* Quick Presets Pills */}
+          <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
+            <span className="text-[11px] font-mono text-zinc-500 uppercase tracking-wider shrink-0 mr-1">
+              Presets:
+            </span>
+            {PRESET_STACKS.map((preset) => (
+              <button
+                key={preset.id}
+                onClick={() => handleSelectPreset(preset)}
+                className={`flex items-center gap-1.5 rounded border px-2.5 py-1 text-xs font-mono whitespace-nowrap transition-all ${
+                  activePresetId === preset.id
+                    ? "border-[#FF9900] bg-[#FF9900]/10 text-[#FF9900] font-semibold"
+                    : "border-zinc-800 bg-zinc-900/60 text-zinc-400 hover:border-zinc-700 hover:text-zinc-200"
+                }`}
+              >
+                <span>{preset.name}</span>
+              </button>
+            ))}
+          </div>
+
           {/* Search & Category Filter Bar */}
-          <div className="mt-8 flex flex-col md:flex-row items-center justify-between gap-3 pt-4 border-t border-border/60">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-3 pt-3 border-t border-zinc-800/60">
             {/* Search Input */}
-            <div className="relative w-full md:w-80">
+            <div className="relative w-full md:w-72">
               <Search
-                size={15}
-                className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground"
+                size={14}
+                className="absolute left-2.5 top-1/2 -translate-y-1/2 text-zinc-500"
               />
               <input
                 type="text"
-                placeholder="Search blocks, frameworks, databases..."
+                placeholder="Filter blocks..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full rounded-lg border border-border/80 bg-card py-2 pl-9 pr-3 text-xs placeholder:text-muted-foreground/60 focus:border-[#FF9900] focus:outline-none focus:ring-1 focus:ring-[#FF9900]"
+                className="w-full rounded-md border border-zinc-800 bg-zinc-900/70 py-1.5 pl-8 pr-3 text-xs text-zinc-200 placeholder:text-zinc-500 focus:border-zinc-600 focus:outline-none"
               />
               {searchQuery && (
                 <button
                   onClick={() => setSearchQuery("")}
-                  className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[10px] text-muted-foreground hover:text-foreground"
+                  className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[10px] text-zinc-500 hover:text-zinc-300"
                 >
                   Clear
                 </button>
@@ -196,25 +204,25 @@ export function StackBuilder() {
             </div>
 
             {/* Quick Category Jump Tabs */}
-            <div className="flex w-full md:w-auto items-center gap-1 overflow-x-auto pb-1 text-xs font-medium scrollbar-none">
+            <div className="flex w-full md:w-auto items-center gap-1 overflow-x-auto pb-1 text-xs font-mono scrollbar-none">
               <button
                 onClick={() => setActiveCategoryFilter("all")}
-                className={`px-3 py-1.5 rounded-lg whitespace-nowrap transition-all ${
+                className={`px-2.5 py-1 rounded text-xs whitespace-nowrap transition-all ${
                   activeCategoryFilter === "all"
-                    ? "bg-[#FF9900] text-black font-bold shadow-xs"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted/60"
+                    ? "bg-zinc-800 text-zinc-100 font-semibold"
+                    : "text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900"
                 }`}
               >
-                All Sections
+                All
               </button>
               {BUILDER_CATEGORIES.map((cat) => (
                 <button
                   key={cat.id}
                   onClick={() => setActiveCategoryFilter(cat.id)}
-                  className={`px-3 py-1.5 rounded-lg whitespace-nowrap transition-all font-mono text-[11px] ${
+                  className={`px-2.5 py-1 rounded text-xs whitespace-nowrap transition-all ${
                     activeCategoryFilter === cat.id
-                      ? "bg-[#FF9900] text-black font-bold shadow-xs"
-                      : "text-muted-foreground hover:text-foreground hover:bg-muted/60"
+                      ? "bg-zinc-800 text-zinc-100 font-semibold"
+                      : "text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900"
                   }`}
                 >
                   {cat.title
@@ -230,12 +238,12 @@ export function StackBuilder() {
       </section>
 
       {/* Main Grid Sections */}
-      <main className="mx-auto max-w-7xl w-full px-4 sm:px-6 py-8 space-y-10">
+      <main className="mx-auto max-w-6xl w-full px-4 sm:px-6 py-8 space-y-8 pb-28">
         {filteredCategories.length === 0 ? (
-          <div className="flex flex-col items-center justify-center py-16 text-center border rounded-xl border-dashed border-border p-8 bg-muted/20">
-            <Boxes size={36} className="text-muted-foreground/50 mb-3" />
-            <h3 className="text-sm font-semibold text-foreground">No blocks found</h3>
-            <p className="text-xs text-muted-foreground mt-1">
+          <div className="flex flex-col items-center justify-center py-16 text-center border rounded-lg border-dashed border-zinc-800 p-8 bg-zinc-950/40">
+            <Boxes size={32} className="text-zinc-600 mb-2" />
+            <h3 className="text-xs font-semibold text-zinc-300">No blocks found</h3>
+            <p className="text-xs text-zinc-500 mt-1">
               No categories or options matched &ldquo;{searchQuery}&rdquo;
             </p>
             <button
@@ -243,7 +251,7 @@ export function StackBuilder() {
                 setSearchQuery("");
                 setActiveCategoryFilter("all");
               }}
-              className="mt-4 rounded-lg bg-[#FF9900] px-3.5 py-1.5 text-xs font-semibold text-black hover:bg-[#FF9900]/90"
+              className="mt-3 rounded border border-zinc-700 bg-zinc-900 px-3 py-1 text-xs text-zinc-200 hover:bg-zinc-800"
             >
               Reset Search
             </button>
@@ -261,7 +269,7 @@ export function StackBuilder() {
         )}
       </main>
 
-      {/* Bottom Floating Command & Action Bar */}
+      {/* Bottom Floating Command Bar */}
       <BottomBar
         selections={selections}
         packageManager={packageManager}

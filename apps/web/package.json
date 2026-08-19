@@ -28,6 +28,7 @@
     "@types/node": "^20.19.43",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
+    "aws-svg-icons": "^3.0.0-2021-07-30",
     "tailwindcss": "catalog:",
     "typescript": "catalog:"
   }

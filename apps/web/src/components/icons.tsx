@@ -5,6 +5,7 @@ export interface IconProps extends React.SVGProps<SVGSVGElement> {
   className?: string;
 }
 
+// AWS Blocks Core Logo
 export function AwsBlocksIcon({ size = 20, className, ...props }: IconProps) {
   return (
     <svg
@@ -16,15 +17,16 @@ export function AwsBlocksIcon({ size = 20, className, ...props }: IconProps) {
       className={className}
       {...props}
     >
-      <rect x="2" y="2" width="9" height="9" rx="2" fill="#FF9900" />
-      <rect x="13" y="2" width="9" height="9" rx="2" fill="#FF9900" fillOpacity="0.85" />
-      <rect x="2" y="13" width="9" height="9" rx="2" fill="#FF9900" fillOpacity="0.7" />
-      <rect x="13" y="13" width="9" height="9" rx="2" fill="#FF9900" fillOpacity="0.5" />
+      <rect x="2.5" y="2.5" width="8" height="8" rx="2" fill="#FF9900" />
+      <rect x="13.5" y="2.5" width="8" height="8" rx="2" fill="#FF9900" fillOpacity="0.8" />
+      <rect x="2.5" y="13.5" width="8" height="8" rx="2" fill="#FF9900" fillOpacity="0.6" />
+      <rect x="13.5" y="13.5" width="8" height="8" rx="2" fill="#FF9900" fillOpacity="0.4" />
       <path d="M6.5 6.5L17.5 17.5" stroke="#1E293B" strokeWidth="1.5" strokeLinecap="round" />
     </svg>
   );
 }
 
+// Official AWS Mark
 export function AwsIcon({ size = 20, className, ...props }: IconProps) {
   return (
     <svg
@@ -40,300 +42,399 @@ export function AwsIcon({ size = 20, className, ...props }: IconProps) {
   );
 }
 
-export function AuroraIcon({ size = 20, className, ...props }: IconProps) {
+// Official Amazon Aurora Architecture Icon
+export function AuroraIcon({ size = 24, className, ...props }: IconProps) {
   return (
     <svg
       width={size}
       height={size}
-      viewBox="0 0 24 24"
+      viewBox="0 0 64 64"
       fill="none"
       className={className}
       {...props}
     >
-      <circle cx="12" cy="12" r="10" fill="#3B48CC" />
+      <defs>
+        <linearGradient x1="0%" y1="100%" x2="100%" y2="0%" id="aurora-grad">
+          <stop stopColor="#2E27AD" offset="0%" />
+          <stop stopColor="#527FFF" offset="100%" />
+        </linearGradient>
+      </defs>
+      <rect width="64" height="64" rx="10" fill="url(#aurora-grad)" />
       <path
-        d="M12 4C7.58 4 4 7.58 4 12C4 16.42 7.58 20 12 20C16.42 20 20 16.42 20 12C20 7.58 16.42 4 12 4ZM12 6.5C15.04 6.5 17.5 8.96 17.5 12C17.5 15.04 15.04 17.5 12 17.5C8.96 17.5 6.5 15.04 6.5 12C6.5 8.96 8.96 6.5 12 6.5Z"
-        fill="#8C4FFF"
-      />
-      <circle cx="12" cy="12" r="3.5" fill="#527FFF" />
-      <path
-        d="M12 7V9M12 15V17M7 12H9M15 12H17"
-        stroke="#FFFFFF"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-      />
-    </svg>
-  );
-}
-
-export function DynamoDbIcon({ size = 20, className, ...props }: IconProps) {
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="none"
-      className={className}
-      {...props}
-    >
-      <path
-        d="M4 6C4 4.34315 7.58172 3 12 3C16.4183 3 20 4.34315 20 6V18C20 19.6569 16.4183 21 12 21C7.58172 21 4 19.6569 4 18V6Z"
-        fill="#4053EC"
-      />
-      <ellipse cx="12" cy="6" rx="8" ry="3" fill="#6979F8" />
-      <path
-        d="M4 10C4 11.6569 7.58172 13 12 13C16.4183 13 20 11.6569 20 10"
-        stroke="#232F3E"
-        strokeWidth="1.5"
-      />
-      <path
-        d="M4 14C4 15.6569 7.58172 17 12 17C16.4183 17 20 15.6569 20 14"
-        stroke="#232F3E"
-        strokeWidth="1.5"
+        d="M36.2 16h-2v-2h2v-2h2v2h2v2h-2v2h-2v-2zm9.1 8h-2v-2h2v-2h2v2h2v2h-2v1h-2v-1zm-3.4 22.7c-1.5-3.3-4.5-6.3-7.8-7.8 3.3-1.5 6.3-4.5 7.8-7.8 1.5 3.3 4.5 6.3 7.8 7.8-3.3 1.5-6.3 4.5-7.8 7.8zm12.1-8.8c-5.2 0-11.1-5.9-11.1-11.1 0-.6-.5-1-1.1-1s-1 .4-1 1c0 5.2-5.9 11.1-11.1 11.1-.6 0-1 .5-1 1s.4 1 1 1c5.2 0 11.1 5.9 11.1 11.1 0 .6.5 1 1 1s1-.4 1-1c0-5.2 5.9-11.1 11.1-11.1.6 0 1.1-.5 1.1-1.1 0-.5-.5-1-1.1-1zm-31.4-19.9c6.8 0 10.6 2 10.6 3s-3.7 3-10.6 3-10.6-2-10.6-3 3.7-3 10.6-3zm-.3 15.1c-5 0-8.6-1.1-10.2-2.2v-7.1c2.4 1.4 6.5 2.2 10.6 2.2s8.2-.7 10.6-2.2v6.5c-1 1.4-5.2 2.8-11 2.8zm11 12.8c0 1.4-4.1 3.5-10.6 3.5s-10.6-2.1-10.6-3.5v-4.4c2.3 1.4 6 2.2 10.3 2.2 2.9 0 5.8-.4 8-1.2l-.7-1.9c-2 .7-4.6 1.1-7.3 1.1-5.4 0-9.3-1.4-10.3-2.8v-5.7c2.4 1.2 6.1 1.9 10.2 1.9 3.9 0 8.3-.7 10.9-2.3v2.2h2v-14c0-3.3-6.3-5-12.6-5s-12.6 1.7-12.6 5v25c0 3.6 6.5 5.5 12.6 5.5s12.6-1.9 12.6-5.5v-2.9h-2v2.9z"
+        fill="#FFFFFF"
       />
     </svg>
   );
 }
 
-export function DsqlIcon({ size = 20, className, ...props }: IconProps) {
+// Official Amazon DynamoDB Architecture Icon
+export function DynamoDbIcon({ size = 24, className, ...props }: IconProps) {
   return (
     <svg
       width={size}
       height={size}
-      viewBox="0 0 24 24"
+      viewBox="0 0 64 64"
       fill="none"
       className={className}
       {...props}
     >
-      <circle cx="12" cy="12" r="10" fill="#2E294E" />
-      <circle cx="12" cy="12" r="7" stroke="#00F5D4" strokeWidth="2" strokeDasharray="3 3" />
-      <circle cx="12" cy="12" r="3" fill="#00F5D4" />
-    </svg>
-  );
-}
-
-export function CognitoIcon({ size = 20, className, ...props }: IconProps) {
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="none"
-      className={className}
-      {...props}
-    >
-      <rect x="3" y="3" width="18" height="18" rx="4" fill="#DD344C" />
-      <circle cx="12" cy="9" r="3.5" fill="#FFFFFF" />
+      <defs>
+        <linearGradient x1="0%" y1="100%" x2="100%" y2="0%" id="dynamo-grad">
+          <stop stopColor="#2E27AD" offset="0%" />
+          <stop stopColor="#527FFF" offset="100%" />
+        </linearGradient>
+      </defs>
+      <rect width="64" height="64" rx="10" fill="url(#dynamo-grad)" />
       <path
-        d="M6 18C6 15 8.5 13.5 12 13.5C15.5 13.5 18 15 18 18"
-        stroke="#FFFFFF"
-        strokeWidth="2"
-        strokeLinecap="round"
+        d="M46.6 25.2h-3.6c-.3 0-.6-.2-.8-.4-.2-.3-.2-.6-.1-1l2.5-6.7h-8.9l-4.1 9.1h4.4c.3 0 .6.2.8.4.2.3.2.6.1 1l-3.7 11.1 13.4-13.5zm3.1-.3l-18 18.2c-.2.2-.5.3-.7.3-.2 0-.4-.1-.5-.2-.4-.2-.6-.7-.4-1.2l4.6-13.8h-4.6c-.3 0-.7-.2-.8-.5-.2-.3-.2-.7-.1-1l5-11.1c.2-.4.5-.6.9-.6h11c.3 0 .6.2.8.4.2.3.2.6.1 1l-2.5 6.7h4.6c.4 0 .8.2.9.6.2.4.1.8-.2 1.1zm-8.7 19.3c-2.7 1.9-7.7 2.9-12.5 2.9-4.8 0-9.8-1-12.5-2.9v3.8c0 1.7 4.8 4 12.5 4s12.5-2.7 12.5-4.5v-3.3zm2.1-3.3v6.5c0 3.6-6.5 6.5-14.5 6.5s-14.5-2.9-14.5-6.5v-32.3c0-4 7.5-6.2 14.5-6.2 3.9 0 7.7.6 10.4 1.8l-.8 1.9c-2.4-1-5.9-1.6-9.6-1.6-7.8 0-12.5 2.4-12.5 4.1s4.8 4.1 12.5 4.1c.2 0 .4 0 .6 0l.1 2c-.2 0-.5 0-.7 0-4.8 0-9.8-1-12.5-2.9v4.4c0 .5.5 1.1 1.4 1.7 2 1.3 5.5 2.2 9.5 2.4l-.1 2c-4.1-.2-7.8-1.1-10.1-2.4-.3.3-.7 1.1-.7 1.5 0 1.7 4.8 4.1 12.5 4.1.7 0 1.5 0 2.2-.1l.1 2c-.7.1-1.5.1-2.3.1-4.8 0-9.8-1-12.5-2.9v3.7c0 .5.5 1.2 1.4 1.7 2.3 1.5 6.5 2.4 11.2 2.4h.3v2h-.3c-4.8 0-9.9-1-12.5-2.5-.3.3 0 1 0 1.5 0 1.7 4.8 4.1 12.5 4.1s12.5-2.4 12.5-4.1c0-.6-.6-1.2-1.1-1.5-.4.2-.9.5-1.4.7l-.8-1.9c.5-.2 1-.5 1.4-.7 1.1-.7 1.8-1.8 1.8-2.2h2c0 .9-.6 1.9-1.4 2.8 1.2 1 1.5 2.1 1.5 2.8z"
+        fill="#FFFFFF"
       />
     </svg>
   );
 }
 
-export function S3Icon({ size = 20, className, ...props }: IconProps) {
+// Official Amazon S3 Architecture Icon
+export function S3Icon({ size = 24, className, ...props }: IconProps) {
   return (
     <svg
       width={size}
       height={size}
-      viewBox="0 0 24 24"
+      viewBox="0 0 64 64"
       fill="none"
       className={className}
       {...props}
     >
-      <path d="M4 5L12 2L20 5L12 8L4 5Z" fill="#E05243" />
-      <path d="M4 5V15L12 18V8L4 5Z" fill="#C43B2E" />
-      <path d="M20 5V15L12 18V8L20 5Z" fill="#EB695B" />
-      <path d="M4 15L12 18L20 15L12 22L4 15Z" fill="#8C2018" />
+      <defs>
+        <linearGradient x1="0%" y1="100%" x2="100%" y2="0%" id="s3-grad">
+          <stop stopColor="#1B660F" offset="0%" />
+          <stop stopColor="#6CAE3E" offset="100%" />
+        </linearGradient>
+      </defs>
+      <rect width="64" height="64" rx="10" fill="url(#s3-grad)" />
+      <g transform="translate(8, 8)" fill="#FFFFFF">
+        <path d="M39.8 25.9l.2-1.8c2.2 1.2 2.8 2 3 2.3-.3.1-1.2.1-3.2-.5zm-17.3-12.9c-10.4 0-17.1-2.5-17.5-4.3v-.2c.3-1.1 6.1-4.5 17.5-4.5s17.1 3.4 17.5 4.5v.1c-.3 1.8-7.1 4.4-17.5 4.4zm15.3 12.4c-4.8-1.6-10.9-4.4-13.2-5.5-.1-1.1-1-2-2.1-2-1.2 0-2.1.9-2.1 2.1 0 1.2.9 2.1 2.1 2.1.5 0 .9-.2 1.2-.4 2.4 1.1 8.9 4.1 13.8 5.7l-1.7 13.3c-.3 1.6-4.9 3.3-13.3 3.3s-13.1-1.6-13.3-3.3l-3.7-28.9c3.5 2.1 10.3 3.2 17.1 3.2s13.6-1.1 17.1-3.2l-1.8 13.6zm4.2-16.9c0-3.1-8.3-6.5-19.5-6.5s-19.5 3.4-19.5 6.5v.5l4.2 32c.7 4.5 11 5 15.3 5s14.6-.5 15.3-5l1.7-13.1c1.3.3 2.3.5 3.1.5 1 0 1.7-.3 2.1-.8.4-.4.5-.9.4-1.5-.2-1.2-1.7-2.5-4.7-4.2l-.1-.1 1.7-12.9v-.5z" />
+      </g>
     </svg>
   );
 }
 
-export function BedrockIcon({ size = 20, className, ...props }: IconProps) {
+// Official Amazon Cognito Architecture Icon
+export function CognitoIcon({ size = 24, className, ...props }: IconProps) {
   return (
     <svg
       width={size}
       height={size}
-      viewBox="0 0 24 24"
+      viewBox="0 0 64 64"
       fill="none"
       className={className}
       {...props}
     >
-      <rect x="3" y="3" width="18" height="18" rx="5" fill="#147EBA" />
-      <path d="M12 6L16 10L12 14L8 10L12 6Z" fill="#45B0EB" />
-      <path d="M12 14L16 18L12 22L8 18L12 14Z" fill="#72CAFC" />
-      <circle cx="12" cy="10" r="1.5" fill="#FFFFFF" />
-      <circle cx="12" cy="18" r="1.5" fill="#FFFFFF" />
-    </svg>
-  );
-}
-
-export function LambdaIcon({ size = 20, className, ...props }: IconProps) {
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="none"
-      className={className}
-      {...props}
-    >
-      <rect x="3" y="3" width="18" height="18" rx="4" fill="#ED7100" />
-      <path d="M8 17L11.5 7H13.5L10 17H8Z" fill="#FFFFFF" />
+      <defs>
+        <linearGradient x1="0%" y1="100%" x2="100%" y2="0%" id="cognito-grad">
+          <stop stopColor="#BD0816" offset="0%" />
+          <stop stopColor="#FF5252" offset="100%" />
+        </linearGradient>
+      </defs>
+      <rect width="64" height="64" rx="10" fill="url(#cognito-grad)" />
       <path
-        d="M11 11L15.5 17H13.5L10 12.5"
-        stroke="#FFFFFF"
-        strokeWidth="1.8"
-        strokeLinecap="round"
+        d="M48.4 21v-5.3c0-.9-.6-1.7-1.3-1.7H13.4c-.7 0-1.4.8-1.4 1.7V21h15.2v-4c0-.6.5-1 1-1h17.2c.6 0 1 .4 1 1v4h2zm-4-3h-15.2v12.4c1-1.8 2.6-3.2 4.5-4-.6-.8-.9-1.7-.9-2.7 0-2.5 2-4.5 4.5-4.5s4.5 2 4.5 4.5c0 1.1-.4 2.1-1.1 2.9 1.4.6 2.7 1.6 3.6 2.8V18zm-4.5 5.7c0-1.4-1.1-2.5-2.5-2.5s-2.5 1.1-2.5 2.5.5 1.7 1.3 2.2c.8.4 1.7.4 2.4 0 .8-.5 1.3-1.3 1.3-2.2zm8.5 9.3v-10h-2v7h-1.7l-1.6 1c-.8-1.4-2.2-2.4-3.8-2.9-1.4.6-3 .6-4.3 0-2.7.8-4.5 3.2-4.7 5.9h6v2h-8.1c-.6 0-1-.5-1-1v-12H12v14.3c0 .9.6 1.7 1.4 1.7h19.8v2H13.4c-1.9 0-3.4-1.7-3.4-3.7V15.7c0-2 1.5-3.7 3.4-3.7h33.7c1.9 0 3.4 1.7 3.4 3.7v17.3h-2.1zm-5.1 14l5.6-5.6-1.4-1.4-4.9 4.9-2.1-2.1-1.4 1.4 2.8 2.8c.2.2.5.3.7.3.3 0 .6-.1.7-.3zm2-11c2.5.3 4.7 1.8 5.8 4.1.7 1.3 1 2.8.8 4.3-.2 1.5-.8 2.9-1.8 4-.7.8-1.6 1.5-2.5 1.9-1.3.6-2.7.8-4.1.7-1.4-.2-2.7-.7-3.8-1.6-2.1-1.6-3.1-4.2-2.8-6.8.3-2.5 1.8-4.7 4.1-5.8 1.1-.5 2.2-.8 3.4-.8.4 0 .7 0 1.1.1zm3.2 16.1c1.2-.6 2.3-1.4 3.2-2.4 1.2-1.4 2-3.1 2.2-5 .2-1.9-.1-3.8-1-5.5-1.5-2.8-4.3-4.7-7.4-5.1-1.9-.2-3.8.1-5.5 1-2.8 1.5-4.8 4.2-5.1 7.4-.4 3.3.9 6.6 3.6 8.6 1.4 1.1 3 1.8 4.8 2 1.8.3 3.6 0 5.2-.6z"
+        fill="#FFFFFF"
       />
     </svg>
   );
 }
 
-export function SqsIcon({ size = 20, className, ...props }: IconProps) {
+// Official AWS Lambda Architecture Icon
+export function LambdaIcon({ size = 24, className, ...props }: IconProps) {
   return (
     <svg
       width={size}
       height={size}
-      viewBox="0 0 24 24"
+      viewBox="0 0 64 64"
       fill="none"
       className={className}
       {...props}
     >
-      <rect x="3" y="3" width="18" height="18" rx="4" fill="#E7157B" />
-      <rect x="6" y="7" width="12" height="2.5" rx="1" fill="#FFFFFF" />
-      <rect x="6" y="11" width="12" height="2.5" rx="1" fill="#FFFFFF" />
-      <rect x="6" y="15" width="12" height="2.5" rx="1" fill="#FFFFFF" />
-    </svg>
-  );
-}
-
-export function EventBridgeIcon({ size = 20, className, ...props }: IconProps) {
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="none"
-      className={className}
-      {...props}
-    >
-      <rect x="3" y="3" width="18" height="18" rx="4" fill="#E7157B" />
-      <circle cx="7" cy="12" r="2" fill="#FFFFFF" />
-      <circle cx="17" cy="7" r="2" fill="#FFFFFF" />
-      <circle cx="17" cy="17" r="2" fill="#FFFFFF" />
-      <path d="M7 12L17 7M7 12L17 17" stroke="#FFFFFF" strokeWidth="1.5" />
-    </svg>
-  );
-}
-
-export function ApiGatewayIcon({ size = 20, className, ...props }: IconProps) {
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="none"
-      className={className}
-      {...props}
-    >
-      <rect x="3" y="3" width="18" height="18" rx="4" fill="#E7157B" />
+      <defs>
+        <linearGradient x1="0%" y1="100%" x2="100%" y2="0%" id="lambda-grad">
+          <stop stopColor="#C8511B" offset="0%" />
+          <stop stopColor="#FF9900" offset="100%" />
+        </linearGradient>
+      </defs>
+      <rect width="64" height="64" rx="10" fill="url(#lambda-grad)" />
       <path
-        d="M7 8H17M7 12H17M7 16H17M12 6V18"
-        stroke="#FFFFFF"
-        strokeWidth="1.8"
-        strokeLinecap="round"
+        d="M22.7 52h-9.1l10.3-21.6 4.5 9.5-5.7 12.1zm2-24.3c-.2-.3-.5-.6-.9-.6h-.1c-.4 0-.7.2-.9.6l-11.8 24.9c-.1.3-.1.7.1 1 .2.3.5.5.8.5h11.3c.4 0 .7-.2.9-.6l6.2-13.1c.1-.3.1-.6 0-.9l-5.6-11.8zm26.3 24.3H42L27 19.6c-.2-.4-.5-.6-.9-.6h-6v-7h11.7l15 32.4c.2.4.5.6.9.6h3.3v7zm1-9h-3.7l-15-32.4c-.2-.4-.5-.6-.9-.6H19.1c-.5 0-1 .4-1 1v9c0 .3.1.5.3.7.2.2.4.3.7.3h6.3l15 32.4c.2.4.5.6.9.6h10.7c.6 0 1-.5 1-1v-9c0-.6-.5-1-1-1z"
+        fill="#FFFFFF"
       />
     </svg>
   );
 }
 
-export function CdkIcon({ size = 20, className, ...props }: IconProps) {
+// Official Amazon EventBridge Architecture Icon
+export function EventBridgeIcon({ size = 24, className, ...props }: IconProps) {
   return (
     <svg
       width={size}
       height={size}
-      viewBox="0 0 24 24"
+      viewBox="0 0 64 64"
       fill="none"
       className={className}
       {...props}
     >
-      <rect x="3" y="3" width="18" height="18" rx="4" fill="#1A4A87" />
-      <path d="M12 5L18 8.5V15.5L12 19L6 15.5V8.5L12 5Z" stroke="#FF9900" strokeWidth="1.8" />
-      <path d="M12 5V19M6 8.5L18 15.5M18 8.5L6 15.5" stroke="#FF9900" strokeWidth="1.2" />
-    </svg>
-  );
-}
-
-export function AppRunnerIcon({ size = 20, className, ...props }: IconProps) {
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="none"
-      className={className}
-      {...props}
-    >
-      <rect x="3" y="3" width="18" height="18" rx="4" fill="#E76D00" />
+      <defs>
+        <linearGradient x1="0%" y1="100%" x2="100%" y2="0%" id="eb-grad">
+          <stop stopColor="#B0084D" offset="0%" />
+          <stop stopColor="#FF4F8B" offset="100%" />
+        </linearGradient>
+      </defs>
+      <rect width="64" height="64" rx="10" fill="url(#eb-grad)" />
       <path
-        d="M7 12H17M13 8L17 12L13 16"
-        stroke="#FFFFFF"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        d="M43.3 52c-1.6 0-2.9-1.3-2.9-2.8 0-1.6 1.3-2.8 2.9-2.8s2.8 1.3 2.8 2.8c0 1.6-1.2 2.8-2.8 2.8zm-6.7-13h-8.1l-4.1-7 4.1-7h8.1l4.1 7-4.1 7zm-13.8-21.4c-1.6 0-2.8-1.3-2.8-2.8 0-1.6 1.3-2.8 2.8-2.8 1.6 0 2.8 1.3 2.8 2.8 0 1.6-1.2 2.8-2.8 2.8zm20.5 26.8c-.5 0-1.1.1-1.5.3l-3.1-5.2 4-6.9c.2-.3.2-.7 0-1l-4.7-8c-.2-.3-.5-.5-.9-.5h-8.3l-2.8-4.7c1-.9 1.6-2.1 1.6-3.5 0-2.7-2.2-4.8-4.9-4.8-2.7 0-4.9 2.2-4.9 4.8 0 2.7 2.2 4.8 4.9 4.8.5 0 1.1-.1 1.5-.3l2.6 4.3-4.6 7.8c-.2.3-.2.7 0 1l4.7 8c.2.3.5.5.9.5h9.3l2.8 4.7c-1 .9-1.6 2.1-1.6 3.5 0 2.7 2.2 4.8 4.9 4.8 2.7 0 4.9-2.2 4.9-4.8 0-2.7-2.2-4.8-4.9-4.8zm4.7-18.8c-1.6 0-2.8-1.3-2.8-2.8 0-1.6 1.3-2.8 2.8-2.8s2.8 1.3 2.8 2.8c0 1.5-1.2 2.8-2.8 2.8zm3-4.7l2.6 4.5-4.2 7.1 1.7 1 4.1-7.1c.2-.3.2-.7 0-1l-2.9-4.5z"
+        fill="#FFFFFF"
       />
     </svg>
   );
 }
 
-export function SesIcon({ size = 20, className, ...props }: IconProps) {
+// Official Amazon SQS Architecture Icon
+export function SqsIcon({ size = 24, className, ...props }: IconProps) {
   return (
     <svg
       width={size}
       height={size}
-      viewBox="0 0 24 24"
+      viewBox="0 0 64 64"
       fill="none"
       className={className}
       {...props}
     >
-      <rect x="3" y="3" width="18" height="18" rx="4" fill="#E7157B" />
+      <defs>
+        <linearGradient x1="0%" y1="100%" x2="100%" y2="0%" id="sqs-grad">
+          <stop stopColor="#B0084D" offset="0%" />
+          <stop stopColor="#FF4F8B" offset="100%" />
+        </linearGradient>
+      </defs>
+      <rect width="64" height="64" rx="10" fill="url(#sqs-grad)" />
       <path
-        d="M6 8L12 13L18 8M6 8H18V16H6V8Z"
-        stroke="#FFFFFF"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        d="M23.8 35.5l2-2.9c.2-.3.2-.8 0-1.1l-2-3-1.7 1.1 1 1.4h-3.1v2h3.1l-1 1.4 1.7 1.1zm18 0l2-3c.2-.3.2-.8 0-1.1l-2-3-1.7 1.1 1 1.4h-3.1v2h3.1l-1 1.4 1.7 1.1zm-13.3-3.5c0 1.5-.2 2.9-.7 4.2 1.3-.4 2.8-.7 4.2-.7s2.9.2 4.2.7c-.4-1.3-.7-2.7-.7-4.2s.2-2.9.7-4.2c-2.6.9-5.7.9-8.4 0 .5 1.3.7 2.7.7 4.2zm-4.2 7.6c-.2-.2-.3-.4-.3-.7 0-.3.1-.5.3-.7 1.4-1.4 2.2-3.7 2.2-6.2s-.8-4.9-2.2-6.2c-.2-.2-.3-.4-.3-.7 0-.3.1-.5.3-.7.4-.4 1-.4 1.4 0 2.9 2.9 9.7 2.9 12.6 0 .4-.4 1-.4 1.4 0 .2.2.3.4.3.7 0 .3-.1.5-.3.7-1.4 1.4-2.2 3.7-2.2 6.2s.8 4.9 2.2 6.2c.2.2.3.4.3.7 0 .3-.1.5-.3.7-.2.2-.5.3-.7.3s-.5-.1-.7-.3c-2.9-2.9-9.7-2.9-12.6 0-.4.4-1.1.4-1.4 0zm27-9.3c-.5-.5-1.1-.7-1.8-.7s-1.3.3-1.8.7c-.5.5-.7 1.1-.7 1.8s.3 1.3.7 1.7c1 1 2.5 1 3.5 0 1-1 1-2.5.1-3.5zm-35 0c-.5-.5-1.1-.7-1.8-.7s-1.3.3-1.8.7c-1 1-1 2.5 0 3.5 1 .9 2.6.9 3.5 0 1-1 1-2.5.1-3.5zm27.1 13c-6.3 6.3-16.6 6.3-23 0-1.6-1.6-2.7-3.3-3.5-5.7l-1.9.6c1 2.8 2.1 4.6 4 6.5 3.6 3.5 8.2 5.3 12.9 5.3s9.3-1.8 12.9-5.3c2-2 3.2-3.9 4.1-6.5l-1.9-.6c-.8 2.2-1.9 4-3.6 5.7z"
+        fill="#FFFFFF"
       />
     </svg>
   );
 }
 
-export function SecretsManagerIcon({ size = 20, className, ...props }: IconProps) {
+// Official Amazon SES Architecture Icon
+export function SesIcon({ size = 24, className, ...props }: IconProps) {
   return (
     <svg
       width={size}
       height={size}
-      viewBox="0 0 24 24"
+      viewBox="0 0 64 64"
       fill="none"
       className={className}
       {...props}
     >
-      <rect x="3" y="3" width="18" height="18" rx="4" fill="#DD344C" />
-      <rect x="7" y="10" width="10" height="8" rx="2" fill="#FFFFFF" />
+      <defs>
+        <linearGradient x1="0%" y1="100%" x2="100%" y2="0%" id="ses-grad">
+          <stop stopColor="#B0084D" offset="0%" />
+          <stop stopColor="#FF4F8B" offset="100%" />
+        </linearGradient>
+      </defs>
+      <rect width="64" height="64" rx="10" fill="url(#ses-grad)" />
       <path
-        d="M9 10V7C9 5.34315 10.3431 4 12 4C13.6569 4 15 5.34315 15 7V10"
-        stroke="#FFFFFF"
-        strokeWidth="2"
+        d="M48 20H16c-1.1 0-2 .9-2 2v20c0 1.1.9 2 2 2h32c1.1 0 2-.9 2-2V22c0-1.1-.9-2-2-2zm-1.4 4L32 33.8 17.4 24h29.2zM16 42V26.2l15.4 10.3c.3.2.7.3 1.1.3s.8-.1 1.1-.3L48 26.2V42H16z"
+        fill="#FFFFFF"
       />
-      <circle cx="12" cy="14" r="1.5" fill="#DD344C" />
     </svg>
   );
 }
 
+// Official Amazon API Gateway Architecture Icon
+export function ApiGatewayIcon({ size = 24, className, ...props }: IconProps) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 64 64"
+      fill="none"
+      className={className}
+      {...props}
+    >
+      <defs>
+        <linearGradient x1="0%" y1="100%" x2="100%" y2="0%" id="apigw-grad">
+          <stop stopColor="#B0084D" offset="0%" />
+          <stop stopColor="#FF4F8B" offset="100%" />
+        </linearGradient>
+      </defs>
+      <rect width="64" height="64" rx="10" fill="url(#apigw-grad)" />
+      <g transform="translate(14, 14)" fill="#FFFFFF">
+        <path d="M18 2h-12c-2.2 0-4 1.8-4 4v24c0 2.2 1.8 4 4 4h12c2.2 0 4-1.8 4-4v-24c0-2.2-1.8-4-4-4zm-12 4h12v24h-12v-24zm22 10h8v4h-8v-4zm0 8h8v4h-8v-4zm0-16h8v4h-8v-4z" />
+      </g>
+    </svg>
+  );
+}
+
+// Official AWS Secrets Manager Architecture Icon
+export function SecretsManagerIcon({ size = 24, className, ...props }: IconProps) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 64 64"
+      fill="none"
+      className={className}
+      {...props}
+    >
+      <defs>
+        <linearGradient x1="0%" y1="100%" x2="100%" y2="0%" id="sec-grad">
+          <stop stopColor="#BD0816" offset="0%" />
+          <stop stopColor="#FF5252" offset="100%" />
+        </linearGradient>
+      </defs>
+      <rect width="64" height="64" rx="10" fill="url(#sec-grad)" />
+      <g transform="translate(16, 14)" fill="#FFFFFF">
+        <path d="M16 0C7.2 0 0 7.2 0 16c0 6.5 3.9 12.1 9.5 14.6l-7.1 7.1c-.6.6-.6 1.5 0 2.1l2.8 2.8c.6.6 1.5.6 2.1 0l2.1-2.1 2.1 2.1c.6.6 1.5.6 2.1 0l2.8-2.8c.6-.6.6-1.5 0-2.1l-2.1-2.1 2.1-2.1c5.6 2.3 12.1.3 14.6-5.3C33.6 23.2 32 16 32 16 32 7.2 24.8 0 16 0zm0 8c2.2 0 4 1.8 4 4s-1.8 4-4 4-4-1.8-4-4 1.8-4 4-4z" />
+      </g>
+    </svg>
+  );
+}
+
+// Official AWS App Runner Architecture Icon
+export function AppRunnerIcon({ size = 24, className, ...props }: IconProps) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 64 64"
+      fill="none"
+      className={className}
+      {...props}
+    >
+      <defs>
+        <linearGradient x1="0%" y1="100%" x2="100%" y2="0%" id="apprunner-grad">
+          <stop stopColor="#C8511B" offset="0%" />
+          <stop stopColor="#FF9900" offset="100%" />
+        </linearGradient>
+      </defs>
+      <rect width="64" height="64" rx="10" fill="url(#apprunner-grad)" />
+      <g transform="translate(12, 12)" fill="#FFFFFF">
+        <path d="M20 4L4 12v16l16 8 16-8V12L20 4zm0 4.5l11.4 5.7-11.4 5.7-11.4-5.7L20 8.5zM6.5 16.2L18 22v14l-11.5-5.8v-14zm27 14L22 36V22l11.5-5.8v14z" />
+      </g>
+    </svg>
+  );
+}
+
+// Official AWS CloudFormation / CDK Architecture Icon
+export function CdkIcon({ size = 24, className, ...props }: IconProps) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 64 64"
+      fill="none"
+      className={className}
+      {...props}
+    >
+      <defs>
+        <linearGradient x1="0%" y1="100%" x2="100%" y2="0%" id="cdk-grad">
+          <stop stopColor="#2E27AD" offset="0%" />
+          <stop stopColor="#527FFF" offset="100%" />
+        </linearGradient>
+      </defs>
+      <rect width="64" height="64" rx="10" fill="url(#cdk-grad)" />
+      <g transform="translate(12, 12)" fill="#FFFFFF">
+        <path d="M20 2L4 10.5v19L20 38l16-8.5v-19L20 2zm0 4.8l11.6 6.2L20 19.2 8.4 13 20 6.8zM6.5 15.6L18 21.8v12.4l-11.5-6.1V15.6zm27 12.4L22 34.2V21.8l11.5-6.2v12.4z" />
+      </g>
+    </svg>
+  );
+}
+
+// Official AWS Amplify Architecture Icon
+export function AmplifyIcon({ size = 24, className, ...props }: IconProps) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 64 64"
+      fill="none"
+      className={className}
+      {...props}
+    >
+      <defs>
+        <linearGradient x1="0%" y1="100%" x2="100%" y2="0%" id="amp-grad">
+          <stop stopColor="#D62400" offset="0%" />
+          <stop stopColor="#FF9900" offset="100%" />
+        </linearGradient>
+      </defs>
+      <rect width="64" height="64" rx="10" fill="url(#amp-grad)" />
+      <g transform="translate(12, 14)" fill="#FFFFFF">
+        <path d="M19.8 4L4 32h7.8l5.2-9.3 4.2 7.4 3.7-6.5-6.1-10.8L19.8 4zm5.8 11.2l-3.3 5.8 8.8 15h7.9l-13.4-20.8zm-11.1 19.8l2.9-5.1 2.9 5.1h-5.8z" />
+      </g>
+    </svg>
+  );
+}
+
+// Official Amazon Bedrock AI Architecture Icon
+export function BedrockIcon({ size = 24, className, ...props }: IconProps) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 64 64"
+      fill="none"
+      className={className}
+      {...props}
+    >
+      <defs>
+        <linearGradient x1="0%" y1="100%" x2="100%" y2="0%" id="bedrock-grad">
+          <stop stopColor="#005B60" offset="0%" />
+          <stop stopColor="#00A4A6" offset="100%" />
+        </linearGradient>
+      </defs>
+      <rect width="64" height="64" rx="10" fill="url(#bedrock-grad)" />
+      <g transform="translate(14, 14)" fill="#FFFFFF">
+        <circle cx="18" cy="18" r="4" />
+        <circle cx="6" cy="10" r="3" />
+        <circle cx="30" cy="10" r="3" />
+        <circle cx="6" cy="26" r="3" />
+        <circle cx="30" cy="26" r="3" />
+        <line x1="6" y1="10" x2="18" y2="18" stroke="#FFFFFF" strokeWidth="2" />
+        <line x1="30" y1="10" x2="18" y2="18" stroke="#FFFFFF" strokeWidth="2" />
+        <line x1="6" y1="26" x2="18" y2="18" stroke="#FFFFFF" strokeWidth="2" />
+        <line x1="30" y1="26" x2="18" y2="18" stroke="#FFFFFF" strokeWidth="2" />
+      </g>
+    </svg>
+  );
+}
+
+// Amazon Aurora DSQL Icon
+export function DsqlIcon({ size = 24, className, ...props }: IconProps) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 64 64"
+      fill="none"
+      className={className}
+      {...props}
+    >
+      <defs>
+        <linearGradient x1="0%" y1="100%" x2="100%" y2="0%" id="dsql-grad">
+          <stop stopColor="#1E1B4B" offset="0%" />
+          <stop stopColor="#4338CA" offset="100%" />
+        </linearGradient>
+      </defs>
+      <rect width="64" height="64" rx="10" fill="url(#dsql-grad)" />
+      <circle cx="32" cy="32" r="16" stroke="#00F5D4" strokeWidth="2.5" strokeDasharray="4 4" />
+      <circle cx="32" cy="32" r="7" fill="#00F5D4" />
+      <circle cx="20" cy="24" r="3" fill="#FFFFFF" />
+      <circle cx="44" cy="24" r="3" fill="#FFFFFF" />
+      <circle cx="32" cy="48" r="3" fill="#FFFFFF" />
+    </svg>
+  );
+}
+
+// Next.js Icon
 export function NextjsIcon({ size = 20, className, ...props }: IconProps) {
   return (
     <svg
@@ -349,6 +450,7 @@ export function NextjsIcon({ size = 20, className, ...props }: IconProps) {
   );
 }
 
+// React Icon
 export function ReactIcon({ size = 20, className, ...props }: IconProps) {
   return (
     <svg
@@ -391,6 +493,7 @@ export function ReactIcon({ size = 20, className, ...props }: IconProps) {
   );
 }
 
+// TanStack Icon
 export function TanStackIcon({ size = 20, className, ...props }: IconProps) {
   return (
     <svg
@@ -408,6 +511,7 @@ export function TanStackIcon({ size = 20, className, ...props }: IconProps) {
   );
 }
 
+// Nuxt Icon
 export function NuxtIcon({ size = 20, className, ...props }: IconProps) {
   return (
     <svg
@@ -424,6 +528,7 @@ export function NuxtIcon({ size = 20, className, ...props }: IconProps) {
   );
 }
 
+// Svelte Icon
 export function SvelteIcon({ size = 20, className, ...props }: IconProps) {
   return (
     <svg
@@ -442,6 +547,7 @@ export function SvelteIcon({ size = 20, className, ...props }: IconProps) {
   );
 }
 
+// Solid Icon
 export function SolidIcon({ size = 20, className, ...props }: IconProps) {
   return (
     <svg
@@ -458,6 +564,7 @@ export function SolidIcon({ size = 20, className, ...props }: IconProps) {
   );
 }
 
+// Astro Icon
 export function AstroIcon({ size = 20, className, ...props }: IconProps) {
   return (
     <svg
@@ -476,6 +583,7 @@ export function AstroIcon({ size = 20, className, ...props }: IconProps) {
   );
 }
 
+// Expo Icon
 export function ExpoIcon({ size = 20, className, ...props }: IconProps) {
   return (
     <svg
@@ -491,6 +599,7 @@ export function ExpoIcon({ size = 20, className, ...props }: IconProps) {
   );
 }
 
+// Swift Icon
 export function SwiftIcon({ size = 20, className, ...props }: IconProps) {
   return (
     <svg
@@ -510,6 +619,7 @@ export function SwiftIcon({ size = 20, className, ...props }: IconProps) {
   );
 }
 
+// Kotlin Icon
 export function KotlinIcon({ size = 20, className, ...props }: IconProps) {
   return (
     <svg
@@ -527,6 +637,7 @@ export function KotlinIcon({ size = 20, className, ...props }: IconProps) {
   );
 }
 
+// Flutter Icon
 export function FlutterIcon({ size = 20, className, ...props }: IconProps) {
   return (
     <svg
@@ -544,6 +655,7 @@ export function FlutterIcon({ size = 20, className, ...props }: IconProps) {
   );
 }
 
+// Drizzle ORM Icon
 export function DrizzleIcon({ size = 20, className, ...props }: IconProps) {
   return (
     <svg
@@ -560,6 +672,7 @@ export function DrizzleIcon({ size = 20, className, ...props }: IconProps) {
   );
 }
 
+// Prisma ORM Icon
 export function PrismaIcon({ size = 20, className, ...props }: IconProps) {
   return (
     <svg
@@ -576,6 +689,7 @@ export function PrismaIcon({ size = 20, className, ...props }: IconProps) {
   );
 }
 
+// Hono Icon
 export function HonoIcon({ size = 20, className, ...props }: IconProps) {
   return (
     <svg
@@ -595,6 +709,7 @@ export function HonoIcon({ size = 20, className, ...props }: IconProps) {
   );
 }
 
+// tRPC Icon
 export function TrpcIcon({ size = 20, className, ...props }: IconProps) {
   return (
     <svg
@@ -611,6 +726,7 @@ export function TrpcIcon({ size = 20, className, ...props }: IconProps) {
   );
 }
 
+// Neon Postgres Icon
 export function NeonIcon({ size = 20, className, ...props }: IconProps) {
   return (
     <svg
@@ -633,6 +749,7 @@ export function NeonIcon({ size = 20, className, ...props }: IconProps) {
   );
 }
 
+// Supabase Icon
 export function SupabaseIcon({ size = 20, className, ...props }: IconProps) {
   return (
     <svg
@@ -649,6 +766,7 @@ export function SupabaseIcon({ size = 20, className, ...props }: IconProps) {
   );
 }
 
+// Turborepo Icon
 export function TurborepoIcon({ size = 20, className, ...props }: IconProps) {
   return (
     <svg
@@ -683,6 +801,7 @@ export function TurborepoIcon({ size = 20, className, ...props }: IconProps) {
   );
 }
 
+// Biome Icon
 export function BiomeIcon({ size = 20, className, ...props }: IconProps) {
   return (
     <svg
@@ -700,6 +819,7 @@ export function BiomeIcon({ size = 20, className, ...props }: IconProps) {
   );
 }
 
+// Bun Icon
 export function BunIcon({ size = 20, className, ...props }: IconProps) {
   return (
     <svg
@@ -724,6 +844,7 @@ export function BunIcon({ size = 20, className, ...props }: IconProps) {
   );
 }
 
+// pnpm Icon
 export function PnpmIcon({ size = 20, className, ...props }: IconProps) {
   return (
     <svg
@@ -743,6 +864,7 @@ export function PnpmIcon({ size = 20, className, ...props }: IconProps) {
   );
 }
 
+// npm Icon
 export function NpmIcon({ size = 20, className, ...props }: IconProps) {
   return (
     <svg
@@ -759,6 +881,7 @@ export function NpmIcon({ size = 20, className, ...props }: IconProps) {
   );
 }
 
+// AI Agent Skills Icon
 export function AgentSkillsIcon({ size = 20, className, ...props }: IconProps) {
   return (
     <svg
@@ -775,46 +898,7 @@ export function AgentSkillsIcon({ size = 20, className, ...props }: IconProps) {
   );
 }
 
-export function OpenTuiIcon({ size = 20, className, ...props }: IconProps) {
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="none"
-      className={className}
-      {...props}
-    >
-      <rect
-        x="2"
-        y="3"
-        width="20"
-        height="18"
-        rx="3"
-        fill="#18181B"
-        stroke="#3F3F46"
-        strokeWidth="1.5"
-      />
-      <path
-        d="M6 8L10 12L6 16"
-        stroke="#22C55E"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <line
-        x1="12"
-        y1="16"
-        x2="17"
-        y2="16"
-        stroke="#22C55E"
-        strokeWidth="2"
-        strokeLinecap="round"
-      />
-    </svg>
-  );
-}
-
+// Better-Auth Icon
 export function BetterAuthIcon({ size = 20, className, ...props }: IconProps) {
   return (
     <svg
@@ -846,6 +930,7 @@ export function BetterAuthIcon({ size = 20, className, ...props }: IconProps) {
   );
 }
 
+// Clerk Icon
 export function ClerkIcon({ size = 20, className, ...props }: IconProps) {
   return (
     <svg
@@ -866,6 +951,7 @@ export function ClerkIcon({ size = 20, className, ...props }: IconProps) {
   );
 }
 
+// GitHub Icon
 export function GithubIcon({ size = 20, className, ...props }: IconProps) {
   return (
     <svg

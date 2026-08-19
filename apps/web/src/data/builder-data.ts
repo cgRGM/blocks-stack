@@ -516,7 +516,7 @@ export const BUILDER_CATEGORIES: CategoryGroup[] = [
         id: "amplify",
         name: "AWS Amplify Hosting",
         description: "Continuous deployment and hosting for Next.js, Nuxt & Single Page Apps",
-        iconName: "aws",
+        iconName: "amplify",
         badge: "RECOMMENDED",
       },
       {

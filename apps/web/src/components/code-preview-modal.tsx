@@ -81,7 +81,7 @@ export function CodePreviewModal({
   const handleCopy = () => {
     navigator.clipboard.writeText(getCurrentContent());
     setCopied(true);
-    toast.success("Copied to clipboard!");
+    toast.success("Copied to clipboard");
     setTimeout(() => setCopied(false), 2000);
   };
 
@@ -92,23 +92,23 @@ export function CodePreviewModal({
   const storage = selections.storage as string;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md p-3 sm:p-6 animate-in fade-in duration-200">
-      <div className="relative flex h-[90vh] w-full max-w-5xl flex-col rounded-xl border border-border bg-background shadow-2xl overflow-hidden">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-sm p-3 sm:p-6 animate-in fade-in duration-150">
+      <div className="relative flex h-[88vh] w-full max-w-5xl flex-col rounded-lg border border-zinc-800 bg-zinc-950 shadow-2xl overflow-hidden text-zinc-100">
         {/* Modal Header */}
-        <div className="flex items-center justify-between border-b border-border/80 px-4 py-3 bg-muted/40">
+        <div className="flex items-center justify-between border-b border-zinc-800 px-4 py-3 bg-zinc-900/50">
           <div className="flex items-center gap-3">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#FF9900]/10 border border-[#FF9900]/30 text-[#FF9900]">
-              <AwsBlocksIcon size={18} />
+            <div className="flex h-7 w-7 items-center justify-center rounded bg-zinc-800 border border-zinc-700 text-[#FF9900]">
+              <AwsBlocksIcon size={16} />
             </div>
             <div>
-              <h3 className="text-sm font-semibold tracking-tight text-foreground flex items-center gap-2">
-                <span>Architecture & Code Preview</span>
-                <span className="text-[11px] font-mono font-normal text-muted-foreground bg-muted px-2 py-0.5 rounded border border-border">
+              <h3 className="text-sm font-semibold tracking-tight text-zinc-100 font-mono flex items-center gap-2">
+                <span>Architecture & Project Scaffolding</span>
+                <span className="text-[11px] font-mono text-zinc-400 bg-zinc-900 px-2 py-0.2 rounded border border-zinc-800">
                   {projectName}
                 </span>
               </h3>
-              <p className="text-xs text-muted-foreground">
-                Infrastructure from Code synthesized for AWS
+              <p className="text-xs text-zinc-400">
+                Generated source code and synthesized AWS CDK constructs
               </p>
             </div>
           </div>
@@ -116,229 +116,229 @@ export function CodePreviewModal({
           <div className="flex items-center gap-2">
             <button
               onClick={handleCopy}
-              className="flex items-center gap-1.5 rounded-md border border-border bg-background px-3 py-1.5 text-xs font-medium text-foreground hover:bg-muted transition-colors shadow-xs"
+              className="flex items-center gap-1.5 rounded border border-zinc-700 bg-zinc-900 px-2.5 py-1 text-xs font-mono text-zinc-200 hover:bg-zinc-800 hover:text-white transition-colors"
             >
               {copied ? (
                 <>
-                  <Check size={14} className="text-emerald-500" />
+                  <Check size={13} className="text-emerald-400" />
                   <span>Copied</span>
                 </>
               ) : (
                 <>
-                  <Copy size={14} />
-                  <span>Copy Content</span>
+                  <Copy size={13} />
+                  <span>Copy</span>
                 </>
               )}
             </button>
             <button
               onClick={onClose}
-              className="rounded-md p-1.5 text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
+              className="rounded p-1 text-zinc-400 hover:bg-zinc-800 hover:text-zinc-100 transition-colors"
             >
-              <X size={18} />
+              <X size={16} />
             </button>
           </div>
         </div>
 
         {/* Tab Navigation */}
-        <div className="flex items-center gap-1 border-b border-border/80 px-4 bg-muted/20 overflow-x-auto text-xs font-medium">
+        <div className="flex items-center gap-1 border-b border-zinc-800 px-4 bg-black/40 overflow-x-auto text-xs font-mono">
           <button
             onClick={() => setActiveTab("architecture")}
-            className={`flex items-center gap-2 border-b-2 px-3 py-2.5 transition-colors whitespace-nowrap ${
+            className={`flex items-center gap-1.5 border-b-2 px-3 py-2.5 transition-colors whitespace-nowrap ${
               activeTab === "architecture"
                 ? "border-[#FF9900] text-[#FF9900] font-semibold"
-                : "border-transparent text-muted-foreground hover:text-foreground"
+                : "border-transparent text-zinc-400 hover:text-zinc-200"
             }`}
           >
-            <Boxes size={15} />
-            <span>Interactive Architecture</span>
+            <Boxes size={14} />
+            <span>Architecture Diagram</span>
           </button>
           <button
             onClick={() => setActiveTab("indexTs")}
-            className={`flex items-center gap-2 border-b-2 px-3 py-2.5 transition-colors whitespace-nowrap ${
+            className={`flex items-center gap-1.5 border-b-2 px-3 py-2.5 transition-colors whitespace-nowrap ${
               activeTab === "indexTs"
                 ? "border-[#FF9900] text-[#FF9900] font-semibold"
-                : "border-transparent text-muted-foreground hover:text-foreground"
+                : "border-transparent text-zinc-400 hover:text-zinc-200"
             }`}
           >
-            <Code2 size={15} />
+            <Code2 size={14} />
             <span>aws-blocks/index.ts</span>
           </button>
           <button
             onClick={() => setActiveTab("cdkStack")}
-            className={`flex items-center gap-2 border-b-2 px-3 py-2.5 transition-colors whitespace-nowrap ${
+            className={`flex items-center gap-1.5 border-b-2 px-3 py-2.5 transition-colors whitespace-nowrap ${
               activeTab === "cdkStack"
                 ? "border-[#FF9900] text-[#FF9900] font-semibold"
-                : "border-transparent text-muted-foreground hover:text-foreground"
+                : "border-transparent text-zinc-400 hover:text-zinc-200"
             }`}
           >
-            <Cloud size={15} />
+            <Cloud size={14} />
             <span>infra/stack.ts (CDK)</span>
           </button>
           <button
             onClick={() => setActiveTab("agentsMd")}
-            className={`flex items-center gap-2 border-b-2 px-3 py-2.5 transition-colors whitespace-nowrap ${
+            className={`flex items-center gap-1.5 border-b-2 px-3 py-2.5 transition-colors whitespace-nowrap ${
               activeTab === "agentsMd"
                 ? "border-[#FF9900] text-[#FF9900] font-semibold"
-                : "border-transparent text-muted-foreground hover:text-foreground"
+                : "border-transparent text-zinc-400 hover:text-zinc-200"
             }`}
           >
-            <Sparkles size={15} />
-            <span>AGENTS.md (AI Steering)</span>
+            <Sparkles size={14} />
+            <span>AGENTS.md</span>
           </button>
           <button
             onClick={() => setActiveTab("workflow")}
-            className={`flex items-center gap-2 border-b-2 px-3 py-2.5 transition-colors whitespace-nowrap ${
+            className={`flex items-center gap-1.5 border-b-2 px-3 py-2.5 transition-colors whitespace-nowrap ${
               activeTab === "workflow"
                 ? "border-[#FF9900] text-[#FF9900] font-semibold"
-                : "border-transparent text-muted-foreground hover:text-foreground"
+                : "border-transparent text-zinc-400 hover:text-zinc-200"
             }`}
           >
-            <Terminal size={15} />
-            <span>Sandbox & CLI Workflow</span>
+            <Terminal size={14} />
+            <span>Workflow & Commands</span>
           </button>
           <button
             onClick={() => setActiveTab("config")}
-            className={`flex items-center gap-2 border-b-2 px-3 py-2.5 transition-colors whitespace-nowrap ${
+            className={`flex items-center gap-1.5 border-b-2 px-3 py-2.5 transition-colors whitespace-nowrap ${
               activeTab === "config"
                 ? "border-[#FF9900] text-[#FF9900] font-semibold"
-                : "border-transparent text-muted-foreground hover:text-foreground"
+                : "border-transparent text-zinc-400 hover:text-zinc-200"
             }`}
           >
-            <FileText size={15} />
+            <FileText size={14} />
             <span>blocks.config.json</span>
           </button>
         </div>
 
         {/* Tab Content */}
-        <div className="flex-1 overflow-y-auto p-4 bg-muted/10 font-mono text-xs">
+        <div className="flex-1 overflow-y-auto p-4 bg-black font-mono text-xs">
           {activeTab === "architecture" ? (
-            <div className="flex flex-col gap-6 font-sans">
-              <div className="rounded-lg border border-border/80 bg-card p-4 shadow-sm">
-                <div className="flex items-center justify-between mb-4 pb-3 border-b border-border/60">
+            <div className="flex flex-col gap-5 font-sans">
+              <div className="rounded-lg border border-zinc-800 bg-zinc-950 p-4">
+                <div className="flex items-center justify-between mb-4 pb-3 border-b border-zinc-800">
                   <div>
-                    <h4 className="text-sm font-semibold text-foreground">
-                      Synthesized AWS Architecture Flow
+                    <h4 className="text-sm font-semibold text-zinc-200">
+                      Synthesized AWS Architecture Blueprint
                     </h4>
-                    <p className="text-xs text-muted-foreground">
-                      Click any component to inspect its AWS Block construct and local mock behavior
+                    <p className="text-xs text-zinc-400">
+                      Modular blocks deployed via AWS CDK constructs
                     </p>
                   </div>
-                  <span className="text-[11px] font-mono font-medium px-2.5 py-1 rounded bg-[#FF9900]/10 text-[#FF9900] border border-[#FF9900]/30">
+                  <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-zinc-900 text-zinc-400 border border-zinc-800">
                     Target: AWS CDK v2
                   </span>
                 </div>
 
-                {/* Architecture Diagram Nodes */}
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                {/* Architecture Nodes */}
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-3.5">
                   {/* Layer 1: Client */}
-                  <div className="flex flex-col gap-3 rounded-lg border border-border/80 bg-muted/30 p-3">
-                    <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-muted-foreground">
+                  <div className="flex flex-col gap-2.5 rounded border border-zinc-800/80 bg-zinc-900/30 p-3">
+                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-zinc-500">
                       1. Clients
                     </span>
                     <button
                       onClick={() => setSelectedNode("web")}
-                      className={`flex items-center gap-2.5 p-2.5 rounded border text-left transition-all ${
+                      className={`flex items-center gap-2 p-2 rounded border text-left transition-all ${
                         selectedNode === "web"
-                          ? "border-[#FF9900] bg-[#FF9900]/10 text-foreground"
-                          : "border-border/60 bg-background text-muted-foreground hover:text-foreground"
+                          ? "border-[#FF9900] bg-[#FF9900]/10 text-white"
+                          : "border-zinc-800 bg-zinc-900/60 text-zinc-400 hover:text-zinc-200"
                       }`}
                     >
-                      <Layers size={16} className="text-[#FF9900]" />
+                      <Layers size={15} className="text-[#FF9900]" />
                       <div>
-                        <div className="text-xs font-semibold text-foreground capitalize">
+                        <div className="text-xs font-semibold text-zinc-200 capitalize">
                           {String(selections.webFrontend)}
                         </div>
-                        <div className="text-[10px] text-muted-foreground">Web Application</div>
+                        <div className="text-[10px] text-zinc-500">Web App</div>
                       </div>
                     </button>
                     {selections.nativeFrontend !== "none" && (
                       <button
                         onClick={() => setSelectedNode("native")}
-                        className={`flex items-center gap-2.5 p-2.5 rounded border text-left transition-all ${
+                        className={`flex items-center gap-2 p-2 rounded border text-left transition-all ${
                           selectedNode === "native"
-                            ? "border-[#FF9900] bg-[#FF9900]/10 text-foreground"
-                            : "border-border/60 bg-background text-muted-foreground hover:text-foreground"
+                            ? "border-[#FF9900] bg-[#FF9900]/10 text-white"
+                            : "border-zinc-800 bg-zinc-900/60 text-zinc-400 hover:text-zinc-200"
                         }`}
                       >
-                        <Radio size={16} className="text-sky-500" />
+                        <Radio size={15} className="text-sky-400" />
                         <div>
-                          <div className="text-xs font-semibold text-foreground capitalize">
+                          <div className="text-xs font-semibold text-zinc-200 capitalize">
                             {String(selections.nativeFrontend)}
                           </div>
-                          <div className="text-[10px] text-muted-foreground">Native Mobile App</div>
+                          <div className="text-[10px] text-zinc-500">Mobile Client</div>
                         </div>
                       </button>
                     )}
                   </div>
 
-                  {/* Layer 2: API & Gateway */}
-                  <div className="flex flex-col gap-3 rounded-lg border border-border/80 bg-muted/30 p-3">
-                    <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-muted-foreground">
+                  {/* Layer 2: API & Routing */}
+                  <div className="flex flex-col gap-2.5 rounded border border-zinc-800/80 bg-zinc-900/30 p-3">
+                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-zinc-500">
                       2. API & Routing
                     </span>
                     <button
                       onClick={() => setSelectedNode("api")}
-                      className={`flex items-center gap-2.5 p-2.5 rounded border text-left transition-all ${
+                      className={`flex items-center gap-2 p-2 rounded border text-left transition-all ${
                         selectedNode === "api"
-                          ? "border-[#FF9900] bg-[#FF9900]/10 text-foreground"
-                          : "border-border/60 bg-background text-muted-foreground hover:text-foreground"
+                          ? "border-[#FF9900] bg-[#FF9900]/10 text-white"
+                          : "border-zinc-800 bg-zinc-900/60 text-zinc-400 hover:text-zinc-200"
                       }`}
                     >
-                      <Cpu size={16} className="text-pink-500" />
+                      <Cpu size={15} className="text-pink-400" />
                       <div>
-                        <div className="text-xs font-semibold text-foreground">
+                        <div className="text-xs font-semibold text-zinc-200">
                           {selections.apiLayer === "blocks-api"
-                            ? "AWS Blocks ApiNamespace"
+                            ? "ApiNamespace"
                             : String(selections.apiLayer)}
                         </div>
-                        <div className="text-[10px] text-muted-foreground">Amazon API Gateway</div>
+                        <div className="text-[10px] text-zinc-500">API Gateway</div>
                       </div>
                     </button>
 
                     <button
                       onClick={() => setSelectedNode("compute")}
-                      className={`flex items-center gap-2.5 p-2.5 rounded border text-left transition-all ${
+                      className={`flex items-center gap-2 p-2 rounded border text-left transition-all ${
                         selectedNode === "compute"
-                          ? "border-[#FF9900] bg-[#FF9900]/10 text-foreground"
-                          : "border-border/60 bg-background text-muted-foreground hover:text-foreground"
+                          ? "border-[#FF9900] bg-[#FF9900]/10 text-white"
+                          : "border-zinc-800 bg-zinc-900/60 text-zinc-400 hover:text-zinc-200"
                       }`}
                     >
-                      <Cpu size={16} className="text-amber-500" />
+                      <Cpu size={15} className="text-amber-400" />
                       <div>
-                        <div className="text-xs font-semibold text-foreground capitalize">
+                        <div className="text-xs font-semibold text-zinc-200 capitalize">
                           {String(selections.backendRuntime)}
                         </div>
-                        <div className="text-[10px] text-muted-foreground">Compute Runtime</div>
+                        <div className="text-[10px] text-zinc-500">Compute Runtime</div>
                       </div>
                     </button>
                   </div>
 
                   {/* Layer 3: Data & Storage */}
-                  <div className="flex flex-col gap-3 rounded-lg border border-border/80 bg-muted/30 p-3">
-                    <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-muted-foreground">
+                  <div className="flex flex-col gap-2.5 rounded border border-zinc-800/80 bg-zinc-900/30 p-3">
+                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-zinc-500">
                       3. Data & Storage
                     </span>
                     {db !== "none" && (
                       <button
                         onClick={() => setSelectedNode("db")}
-                        className={`flex items-center gap-2.5 p-2.5 rounded border text-left transition-all ${
+                        className={`flex items-center gap-2 p-2 rounded border text-left transition-all ${
                           selectedNode === "db"
-                            ? "border-[#FF9900] bg-[#FF9900]/10 text-foreground"
-                            : "border-border/60 bg-background text-muted-foreground hover:text-foreground"
+                            ? "border-[#FF9900] bg-[#FF9900]/10 text-white"
+                            : "border-zinc-800 bg-zinc-900/60 text-zinc-400 hover:text-zinc-200"
                         }`}
                       >
-                        <Database size={16} className="text-blue-500" />
+                        <Database size={15} className="text-blue-400" />
                         <div>
-                          <div className="text-xs font-semibold text-foreground">
+                          <div className="text-xs font-semibold text-zinc-200">
                             {db === "aurora-postgres"
-                              ? "Aurora Serverless v2"
+                              ? "Aurora Postgres"
                               : db === "dynamodb"
-                                ? "Amazon DynamoDB"
+                                ? "DynamoDB"
                                 : db === "aurora-dsql"
                                   ? "Aurora DSQL"
                                   : db}
                           </div>
-                          <div className="text-[10px] text-muted-foreground">
+                          <div className="text-[10px] text-zinc-500">
                             {selections.orm !== "none" ? `ORM: ${selections.orm}` : "Native Client"}
                           </div>
                         </div>
@@ -348,16 +348,16 @@ export function CodePreviewModal({
                     {storage !== "none" && (
                       <button
                         onClick={() => setSelectedNode("storage")}
-                        className={`flex items-center gap-2.5 p-2.5 rounded border text-left transition-all ${
+                        className={`flex items-center gap-2 p-2 rounded border text-left transition-all ${
                           selectedNode === "storage"
-                            ? "border-[#FF9900] bg-[#FF9900]/10 text-foreground"
-                            : "border-border/60 bg-background text-muted-foreground hover:text-foreground"
+                            ? "border-[#FF9900] bg-[#FF9900]/10 text-white"
+                            : "border-zinc-800 bg-zinc-900/60 text-zinc-400 hover:text-zinc-200"
                         }`}
                       >
-                        <FolderLock size={16} className="text-red-500" />
+                        <FolderLock size={15} className="text-red-400" />
                         <div>
-                          <div className="text-xs font-semibold text-foreground">Amazon S3</div>
-                          <div className="text-[10px] text-muted-foreground">FileBucket + CDN</div>
+                          <div className="text-xs font-semibold text-zinc-200">Amazon S3</div>
+                          <div className="text-[10px] text-zinc-500">FileBucket</div>
                         </div>
                       </button>
                     )}
@@ -365,43 +365,41 @@ export function CodePreviewModal({
                     {auth !== "none" && (
                       <button
                         onClick={() => setSelectedNode("auth")}
-                        className={`flex items-center gap-2.5 p-2.5 rounded border text-left transition-all ${
+                        className={`flex items-center gap-2 p-2 rounded border text-left transition-all ${
                           selectedNode === "auth"
-                            ? "border-[#FF9900] bg-[#FF9900]/10 text-foreground"
-                            : "border-border/60 bg-background text-muted-foreground hover:text-foreground"
+                            ? "border-[#FF9900] bg-[#FF9900]/10 text-white"
+                            : "border-zinc-800 bg-zinc-900/60 text-zinc-400 hover:text-zinc-200"
                         }`}
                       >
-                        <Shield size={16} className="text-emerald-500" />
+                        <Shield size={15} className="text-emerald-400" />
                         <div>
-                          <div className="text-xs font-semibold text-foreground">
+                          <div className="text-xs font-semibold text-zinc-200">
                             {auth === "cognito" ? "Amazon Cognito" : auth}
                           </div>
-                          <div className="text-[10px] text-muted-foreground">User Pool & MFA</div>
+                          <div className="text-[10px] text-zinc-500">Auth Block</div>
                         </div>
                       </button>
                     )}
                   </div>
 
-                  {/* Layer 4: AI & Event Capabilities */}
-                  <div className="flex flex-col gap-3 rounded-lg border border-border/80 bg-muted/30 p-3">
-                    <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-muted-foreground">
+                  {/* Layer 4: AI & Background */}
+                  <div className="flex flex-col gap-2.5 rounded border border-zinc-800/80 bg-zinc-900/30 p-3">
+                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-zinc-500">
                       4. AI & Background
                     </span>
                     {ai !== "none" && (
                       <button
                         onClick={() => setSelectedNode("ai")}
-                        className={`flex items-center gap-2.5 p-2.5 rounded border text-left transition-all ${
+                        className={`flex items-center gap-2 p-2 rounded border text-left transition-all ${
                           selectedNode === "ai"
-                            ? "border-[#FF9900] bg-[#FF9900]/10 text-foreground"
-                            : "border-border/60 bg-background text-muted-foreground hover:text-foreground"
+                            ? "border-[#FF9900] bg-[#FF9900]/10 text-white"
+                            : "border-zinc-800 bg-zinc-900/60 text-zinc-400 hover:text-zinc-200"
                         }`}
                       >
-                        <Sparkles size={16} className="text-purple-500" />
+                        <Sparkles size={15} className="text-teal-400" />
                         <div>
-                          <div className="text-xs font-semibold text-foreground">
-                            Amazon Bedrock
-                          </div>
-                          <div className="text-[10px] text-muted-foreground">Claude 3.5 + RAG</div>
+                          <div className="text-xs font-semibold text-zinc-200">Amazon Bedrock</div>
+                          <div className="text-[10px] text-zinc-500">Agent & RAG</div>
                         </div>
                       </button>
                     )}
@@ -409,16 +407,16 @@ export function CodePreviewModal({
                     {events.includes("async-job") && (
                       <button
                         onClick={() => setSelectedNode("sqs")}
-                        className={`flex items-center gap-2.5 p-2.5 rounded border text-left transition-all ${
+                        className={`flex items-center gap-2 p-2 rounded border text-left transition-all ${
                           selectedNode === "sqs"
-                            ? "border-[#FF9900] bg-[#FF9900]/10 text-foreground"
-                            : "border-border/60 bg-background text-muted-foreground hover:text-foreground"
+                            ? "border-[#FF9900] bg-[#FF9900]/10 text-white"
+                            : "border-zinc-800 bg-zinc-900/60 text-zinc-400 hover:text-zinc-200"
                         }`}
                       >
-                        <Layers size={16} className="text-pink-500" />
+                        <Layers size={15} className="text-pink-400" />
                         <div>
-                          <div className="text-xs font-semibold text-foreground">Amazon SQS</div>
-                          <div className="text-[10px] text-muted-foreground">AsyncJob Worker</div>
+                          <div className="text-xs font-semibold text-zinc-200">Amazon SQS</div>
+                          <div className="text-[10px] text-zinc-500">AsyncJob</div>
                         </div>
                       </button>
                     )}
@@ -426,18 +424,16 @@ export function CodePreviewModal({
                     {events.includes("cron-job") && (
                       <button
                         onClick={() => setSelectedNode("cron")}
-                        className={`flex items-center gap-2.5 p-2.5 rounded border text-left transition-all ${
+                        className={`flex items-center gap-2 p-2 rounded border text-left transition-all ${
                           selectedNode === "cron"
-                            ? "border-[#FF9900] bg-[#FF9900]/10 text-foreground"
-                            : "border-border/60 bg-background text-muted-foreground hover:text-foreground"
+                            ? "border-[#FF9900] bg-[#FF9900]/10 text-white"
+                            : "border-zinc-800 bg-zinc-900/60 text-zinc-400 hover:text-zinc-200"
                         }`}
                       >
-                        <Clock size={16} className="text-pink-500" />
+                        <Clock size={15} className="text-pink-400" />
                         <div>
-                          <div className="text-xs font-semibold text-foreground">
-                            Amazon EventBridge
-                          </div>
-                          <div className="text-[10px] text-muted-foreground">CronJob Scheduler</div>
+                          <div className="text-xs font-semibold text-zinc-200">EventBridge</div>
+                          <div className="text-[10px] text-zinc-500">CronJob</div>
                         </div>
                       </button>
                     )}
@@ -445,18 +441,16 @@ export function CodePreviewModal({
                     {events.includes("email-client") && (
                       <button
                         onClick={() => setSelectedNode("ses")}
-                        className={`flex items-center gap-2.5 p-2.5 rounded border text-left transition-all ${
+                        className={`flex items-center gap-2 p-2 rounded border text-left transition-all ${
                           selectedNode === "ses"
-                            ? "border-[#FF9900] bg-[#FF9900]/10 text-foreground"
-                            : "border-border/60 bg-background text-muted-foreground hover:text-foreground"
+                            ? "border-[#FF9900] bg-[#FF9900]/10 text-white"
+                            : "border-zinc-800 bg-zinc-900/60 text-zinc-400 hover:text-zinc-200"
                         }`}
                       >
-                        <Mail size={16} className="text-pink-500" />
+                        <Mail size={15} className="text-pink-400" />
                         <div>
-                          <div className="text-xs font-semibold text-foreground">Amazon SES</div>
-                          <div className="text-[10px] text-muted-foreground">
-                            Transactional Email
-                          </div>
+                          <div className="text-xs font-semibold text-zinc-200">Amazon SES</div>
+                          <div className="text-[10px] text-zinc-500">EmailClient</div>
                         </div>
                       </button>
                     )}
@@ -464,18 +458,16 @@ export function CodePreviewModal({
                     {events.includes("secret-store") && (
                       <button
                         onClick={() => setSelectedNode("secrets")}
-                        className={`flex items-center gap-2.5 p-2.5 rounded border text-left transition-all ${
+                        className={`flex items-center gap-2 p-2 rounded border text-left transition-all ${
                           selectedNode === "secrets"
-                            ? "border-[#FF9900] bg-[#FF9900]/10 text-foreground"
-                            : "border-border/60 bg-background text-muted-foreground hover:text-foreground"
+                            ? "border-[#FF9900] bg-[#FF9900]/10 text-white"
+                            : "border-zinc-800 bg-zinc-900/60 text-zinc-400 hover:text-zinc-200"
                         }`}
                       >
-                        <Key size={16} className="text-red-500" />
+                        <Key size={15} className="text-red-400" />
                         <div>
-                          <div className="text-xs font-semibold text-foreground">
-                            Secrets Manager
-                          </div>
-                          <div className="text-[10px] text-muted-foreground">Rotated Keys</div>
+                          <div className="text-xs font-semibold text-zinc-200">Secrets Manager</div>
+                          <div className="text-[10px] text-zinc-500">SecretStore</div>
                         </div>
                       </button>
                     )}
@@ -483,36 +475,37 @@ export function CodePreviewModal({
                 </div>
 
                 {/* Node Details Inspection Panel */}
-                <div className="mt-5 rounded-lg border border-[#FF9900]/30 bg-amber-500/[0.04] p-4 text-xs">
-                  <div className="flex items-center justify-between pb-2 border-b border-border/60">
+                <div className="mt-4 rounded border border-zinc-800 bg-zinc-900/40 p-3 text-xs">
+                  <div className="flex items-center justify-between pb-1.5 border-b border-zinc-800">
                     <span className="font-semibold text-[#FF9900] uppercase tracking-wider font-mono">
-                      Inspector: {selectedNode?.toUpperCase()}
+                      Component Inspector: {selectedNode?.toUpperCase()}
                     </span>
-                    <span className="text-[11px] text-muted-foreground">
-                      Simultaneous Local Mock + AWS Cloud Formation CDK
+                    <span className="text-[11px] text-zinc-500 font-mono">
+                      Tri-Purpose Block Architecture
                     </span>
                   </div>
-                  <div className="mt-3 grid grid-cols-1 md:grid-cols-3 gap-3">
-                    <div className="rounded bg-background/60 p-2.5 border border-border/40">
-                      <div className="font-semibold text-foreground mb-1">Local Dev (Mock)</div>
-                      <p className="text-muted-foreground text-[11px] leading-relaxed">
-                        Runs 100% locally with zero cloud dependencies. No AWS credentials or
-                        internet required during{" "}
-                        <code className="text-foreground">bun run dev</code>.
+                  <div className="mt-2.5 grid grid-cols-1 md:grid-cols-3 gap-2.5">
+                    <div className="rounded bg-black/60 p-2 border border-zinc-800">
+                      <div className="font-semibold text-zinc-300 mb-0.5">1. Local Mock</div>
+                      <p className="text-zinc-400 text-[11px] leading-relaxed">
+                        Runs locally in memory with zero cloud dependencies. No AWS credentials
+                        needed during <code className="text-zinc-200">bun run dev</code>.
                       </p>
                     </div>
-                    <div className="rounded bg-background/60 p-2.5 border border-border/40">
-                      <div className="font-semibold text-foreground mb-1">AWS Infrastructure</div>
-                      <p className="text-muted-foreground text-[11px] leading-relaxed">
-                        Synthesizes production AWS CDK constructs with IAM least-privilege security
-                        policies, KMS encryption, and auto-scaling.
+                    <div className="rounded bg-black/60 p-2 border border-zinc-800">
+                      <div className="font-semibold text-zinc-300 mb-0.5">
+                        2. Infrastructure (CDK)
+                      </div>
+                      <p className="text-zinc-400 text-[11px] leading-relaxed">
+                        Synthesizes AWS CDK constructs with least-privilege IAM policies, KMS
+                        encryption, and auto-scaling.
                       </p>
                     </div>
-                    <div className="rounded bg-background/60 p-2.5 border border-border/40">
-                      <div className="font-semibold text-foreground mb-1">Runtime Execution</div>
-                      <p className="text-muted-foreground text-[11px] leading-relaxed">
-                        Executes optimized AWS SDK calls inside Lambda handlers with built-in
-                        connection pooling and caching.
+                    <div className="rounded bg-black/60 p-2 border border-zinc-800">
+                      <div className="font-semibold text-zinc-300 mb-0.5">3. Runtime Execution</div>
+                      <p className="text-zinc-400 text-[11px] leading-relaxed">
+                        Executes optimized AWS SDK operations inside Lambda handlers with
+                        sub-millisecond connection pooling.
                       </p>
                     </div>
                   </div>
@@ -520,23 +513,25 @@ export function CodePreviewModal({
               </div>
             </div>
           ) : (
-            <pre className="p-4 rounded-lg bg-card border border-border/80 overflow-x-auto text-[12px] leading-relaxed text-foreground select-text whitespace-pre">
+            <pre className="p-4 rounded border border-zinc-800 bg-zinc-950 text-zinc-300 text-[12px] leading-relaxed select-text whitespace-pre overflow-x-auto">
               {getCurrentContent()}
             </pre>
           )}
         </div>
 
         {/* Modal Footer */}
-        <div className="flex items-center justify-between border-t border-border/80 px-4 py-3 bg-muted/30">
-          <div className="flex items-center gap-2">
-            <span className="text-xs text-muted-foreground">Ready to create this AWS stack?</span>
+        <div className="flex items-center justify-between border-t border-zinc-800 px-4 py-2.5 bg-zinc-900/50">
+          <div className="flex items-center gap-2 text-xs text-zinc-500 font-mono">
+            <span>
+              Ready to scaffold: <code className="text-zinc-300">{projectName}</code>
+            </span>
           </div>
           <button
             onClick={handleCopy}
-            className="flex items-center gap-2 rounded-lg bg-[#FF9900] px-4 py-2 text-xs font-semibold text-black hover:bg-[#FF9900]/90 transition-colors shadow-sm"
+            className="flex items-center gap-1.5 rounded bg-[#FF9900] px-3.5 py-1.5 text-xs font-mono font-semibold text-black hover:bg-[#FF9900]/90 transition-colors shadow-xs"
           >
-            {copied ? <Check size={14} strokeWidth={3} /> : <Copy size={14} />}
-            <span>Copy {activeTab === "workflow" ? "Workflow Commands" : "File Code"}</span>
+            {copied ? <Check size={13} strokeWidth={3} /> : <Copy size={13} />}
+            <span>Copy {activeTab === "workflow" ? "Workflow Commands" : "Content"}</span>
           </button>
         </div>
       </div>

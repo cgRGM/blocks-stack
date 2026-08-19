@@ -22,89 +22,87 @@ export function PresetsModal({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md p-3 sm:p-6 animate-in fade-in duration-200">
-      <div className="relative flex h-[85vh] w-full max-w-4xl flex-col rounded-xl border border-border bg-background shadow-2xl overflow-hidden">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-sm p-3 sm:p-6 animate-in fade-in duration-150">
+      <div className="relative flex h-[82vh] w-full max-w-4xl flex-col rounded-lg border border-zinc-800 bg-zinc-950 shadow-2xl overflow-hidden text-zinc-100">
         {/* Modal Header */}
-        <div className="flex items-center justify-between border-b border-border/80 px-5 py-4 bg-muted/30">
-          <div className="flex items-center gap-3">
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#FF9900]/10 border border-[#FF9900]/30 text-[#FF9900]">
-              <Sparkles size={20} />
+        <div className="flex items-center justify-between border-b border-zinc-800 px-5 py-3.5 bg-zinc-900/50">
+          <div className="flex items-center gap-2.5">
+            <div className="flex h-7 w-7 items-center justify-center rounded bg-zinc-800 border border-zinc-700 text-[#FF9900]">
+              <Sparkles size={16} />
             </div>
             <div>
-              <h3 className="text-base font-semibold tracking-tight text-foreground">
-                AWS Blocks Architecture Presets
+              <h3 className="text-sm font-semibold tracking-tight text-zinc-100 font-mono">
+                AWS Architecture Presets
               </h3>
-              <p className="text-xs text-muted-foreground">
-                One-click fullstack architectures designed for modern AWS best practices
+              <p className="text-xs text-zinc-400">
+                Pre-configured fullstack templates for common AWS workloads
               </p>
             </div>
           </div>
 
           <button
             onClick={onClose}
-            className="rounded-md p-1.5 text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
+            className="rounded p-1 text-zinc-400 hover:bg-zinc-800 hover:text-zinc-100 transition-colors"
           >
-            <X size={18} />
+            <X size={16} />
           </button>
         </div>
 
         {/* Preset Cards Grid */}
-        <div className="flex-1 overflow-y-auto p-5 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="flex-1 overflow-y-auto p-5 grid grid-cols-1 md:grid-cols-2 gap-3.5">
           {PRESET_STACKS.map((preset) => {
             const isCurrent = activePresetId === preset.id;
 
             return (
               <div
                 key={preset.id}
-                className={`relative flex flex-col justify-between rounded-xl border p-4.5 transition-all ${
+                className={`relative flex flex-col justify-between rounded-lg border p-4 transition-all ${
                   isCurrent
-                    ? "border-[#FF9900] bg-amber-500/[0.05] ring-1 ring-[#FF9900]/40 shadow-sm"
-                    : "border-border/80 bg-card hover:border-border hover:bg-accent/30"
+                    ? "border-[#FF9900]/70 bg-[#FF9900]/[0.03]"
+                    : "border-zinc-800/80 bg-zinc-900/30 hover:border-zinc-700 hover:bg-zinc-900/60"
                 }`}
               >
                 <div>
-                  <div className="flex items-start justify-between gap-3 mb-2.5">
+                  <div className="flex items-start justify-between gap-3 mb-2">
                     <div className="flex items-center gap-2.5">
-                      <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-border/80 bg-muted/60 text-[#FF9900] p-1.5">
+                      <div className="flex h-8 w-8 items-center justify-center rounded border border-zinc-800 bg-zinc-900 text-[#FF9900] p-1">
                         <RenderIcon name={preset.icon} size={20} />
                       </div>
                       <div>
-                        <h4 className="text-sm font-bold text-foreground">{preset.name}</h4>
-                        <span className="text-[11px] font-medium text-[#FF9900]">
+                        <h4 className="text-sm font-semibold text-zinc-200">{preset.name}</h4>
+                        <span className="text-[11px] text-[#FF9900] font-mono">
                           {preset.tagline}
                         </span>
                       </div>
                     </div>
 
-                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider bg-[#FF9900]/10 text-[#FF9900] border border-[#FF9900]/30 shrink-0">
+                    <span className="text-[10px] font-mono font-medium px-2 py-0.2 rounded uppercase bg-zinc-800 text-zinc-400 border border-zinc-700 shrink-0">
                       {preset.badge}
                     </span>
                   </div>
 
-                  <p className="text-xs text-muted-foreground leading-relaxed mt-2">
-                    {preset.description}
-                  </p>
+                  <p className="text-xs text-zinc-400 leading-relaxed mt-2">{preset.description}</p>
 
                   {/* Summary of key features */}
-                  <div className="mt-3.5 flex flex-wrap gap-1.5 pt-3 border-t border-border/60">
-                    <span className="text-[10px] font-mono font-medium px-2 py-0.5 rounded bg-muted text-foreground/80 border border-border/60">
+                  <div className="mt-3 flex flex-wrap gap-1.5 pt-2.5 border-t border-zinc-800/60">
+                    <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-zinc-800/80 text-zinc-300 border border-zinc-700/60">
                       {String(preset.selections.webFrontend)}
                     </span>
-                    <span className="text-[10px] font-mono font-medium px-2 py-0.5 rounded bg-muted text-foreground/80 border border-border/60">
+                    <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-zinc-800/80 text-zinc-300 border border-zinc-700/60">
                       {String(preset.selections.database)}
                     </span>
-                    <span className="text-[10px] font-mono font-medium px-2 py-0.5 rounded bg-muted text-foreground/80 border border-border/60">
+                    <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-zinc-800/80 text-zinc-300 border border-zinc-700/60">
                       {String(preset.selections.auth)}
                     </span>
                     {preset.selections.aiBedrock !== "none" && (
-                      <span className="text-[10px] font-mono font-medium px-2 py-0.5 rounded bg-purple-500/10 text-purple-400 border border-purple-500/30">
+                      <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-teal-950/40 text-teal-300 border border-teal-800/40">
                         Bedrock AI
                       </span>
                     )}
                   </div>
                 </div>
 
-                <div className="mt-4 pt-3 flex items-center justify-end">
+                <div className="mt-4 pt-2.5 flex items-center justify-end">
                   <button
                     type="button"
                     onClick={() => {
@@ -112,21 +110,21 @@ export function PresetsModal({
                       toast.success(`Loaded preset: ${preset.name}`);
                       onClose();
                     }}
-                    className={`flex items-center gap-1.5 rounded-lg px-3.5 py-1.5 text-xs font-semibold transition-all ${
+                    className={`flex items-center gap-1.5 rounded px-3 py-1.5 text-xs font-mono font-semibold transition-all ${
                       isCurrent
                         ? "bg-[#FF9900] text-black hover:bg-[#FF9900]/90"
-                        : "border border-border bg-background text-foreground hover:bg-muted"
+                        : "border border-zinc-700 bg-zinc-800 text-zinc-200 hover:bg-zinc-700 hover:text-white"
                     }`}
                   >
                     {isCurrent ? (
                       <>
-                        <Check size={14} strokeWidth={3} />
-                        <span>Active Stack</span>
+                        <Check size={13} strokeWidth={3} />
+                        <span>Active</span>
                       </>
                     ) : (
                       <>
-                        <span>Load Preset</span>
-                        <ArrowRight size={13} />
+                        <span>Select Preset</span>
+                        <ArrowRight size={12} />
                       </>
                     )}
                   </button>
